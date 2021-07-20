@@ -1,0 +1,20 @@
+{
+  "name": "assign-4",
+  "version": "1.0.0",
+  "description": "An express application that returns the result of adding two numbers provided by the user. One number is given as a path parameter the second number as a queryString",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Calculater",
+    "Express"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
