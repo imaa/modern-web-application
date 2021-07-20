@@ -1,0 +1,23 @@
+2021-07-20T14:41:45.510Z - info:   [08888] *** FOLDER: d:\MIU\Study\MWA\modern-web-application\assignments\day-01 ***
+2021-07-20T14:41:45.510Z - info:   [08888] AzureReposVSCode/1.161.1 (VSCode 1.57.1; Windows_NT 10.0.19043; Node 14.16.0)
+2021-07-20T14:41:45.511Z - debug:  [08888] Looking for an External Context at d:\MIU\Study\MWA\modern-web-application\assignments\day-01
+2021-07-20T14:41:45.511Z - debug:  [08888] No External Context at d:\MIU\Study\MWA\modern-web-application\assignments\day-01
+2021-07-20T14:41:45.513Z - debug:  [08888] Looking for TFVC repository at d:\MIU\Study\MWA\modern-web-application\assignments\day-01
+2021-07-20T14:41:45.513Z - debug:  [08888] TFVC Creating Tfvc object with localPath='undefined'
+2021-07-20T14:41:45.514Z - debug:  [08888] Using TFS proxy: 
+2021-07-20T14:41:45.514Z - debug:  [08888] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2021-07-20T14:41:45.514Z - debug:  [08888] TFVC Repository created with repositoryRootFolder='d:\MIU\Study\MWA\modern-web-application\assignments\day-01'
+2021-07-20T14:41:45.515Z - debug:  [08888] TFVC Repository.CheckVersion
+2021-07-20T14:41:45.515Z - debug:  [08888] TFVC: tf add -noprompt -?
+2021-07-20T14:41:45.537Z - debug:  [08888] TFVC: spawned new process (duration: 22ms)
+2021-07-20T14:41:45.543Z - debug:  [08888] TFVC: spawned new process (duration: 6ms)
+2021-07-20T14:41:45.952Z - debug:  [08888] TFVC: add exit code: 0 (duration: 437ms)
+2021-07-20T14:41:45.952Z - debug:  [08888] TFVC Minimum required version: 14.102.0
+2021-07-20T14:41:45.952Z - debug:  [08888] TFVC (TF.exe, TF.cmd) version: 16.170.31227.2
+2021-07-20T14:41:45.952Z - debug:  [08888] TFVC Repository.FindWorkspace with localPath='d:\MIU\Study\MWA\modern-web-application\assignments\day-01'
+2021-07-20T14:41:45.952Z - debug:  [08888] TFVC: tf workfold -noprompt d:\MIU\Study\MWA\modern-web-application\assignments\day-01
+2021-07-20T14:41:45.957Z - debug:  [08888] TFVC: spawned new process (duration: 4ms)
+2021-07-20T14:41:46.109Z - debug:  [08888] TFVC: workfold exit code: 100 (duration: 157ms)
+2021-07-20T14:41:46.110Z - debug:  [08888] TFVC errors (via stderr): Unable to determine the source control server.
+
+2021-07-20T14:41:46.110Z - error:  [08888] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
