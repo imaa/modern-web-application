@@ -1,0 +1,22 @@
+{
+  "name": "day-03",
+  "version": "1.0.0",
+  "description": "Ddisplay 5 games from database or as many as the user specifies but not exceeding 7",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "mongodb"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.0.1"
+  }
+}
