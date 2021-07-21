@@ -11,6 +11,10 @@ const gamesGetAll = (req, res) => {
     .skip(parseInt(req.query.skip ?? 0))
     .limit(parseInt(req.query.limit ?? 5))
     .toArray((err, result) => {
+      if (err) {
+        res.status(500).json({ error: "Error occured on the server" });
+        return;
+      }
       res.status(200).json(result);
     });
 };
