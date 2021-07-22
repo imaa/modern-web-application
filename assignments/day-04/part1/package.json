@@ -1,0 +1,22 @@
+{
+  "name": "day-04",
+  "version": "1.0.0",
+  "description": "an Express Mongoose API application to get all games and get One game using all the checking and things (limit, count, parsing, ...) we covered in class.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJs",
+    "Mongoos",
+    "Express"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}

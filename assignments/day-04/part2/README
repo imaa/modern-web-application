@@ -1,0 +1,3 @@
+db.students.update({},{$set:{"courses.$[]._id":ObjectId()}},{multi:true})
+
+Student JSON File only to write proper json in VS Code

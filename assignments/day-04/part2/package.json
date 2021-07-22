@@ -1,0 +1,22 @@
+{
+  "name": "day-04",
+  "version": "1.0.0",
+  "description": "headless application to work with SchoolDB. But now add courses as a sub-document to the student and add API for courses. (your API should only do getall and getOne)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJs",
+    "Mongoos",
+    "Express"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}

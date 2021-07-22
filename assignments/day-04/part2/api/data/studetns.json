@@ -1,0 +1,113 @@
+[
+  {
+    "_id": {
+      "$oid": "60f9e93142e8c8bd1bc7d8ad"
+    },
+    "name": "Ibrahim Abulubad",
+    "birthDate": "06/07/1985",
+    "courses": [
+      {
+        "name": "MPP",
+        "grade": "A",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b1"
+        }
+      },
+      {
+        "name": "WAA",
+        "grade": "A+",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b2"
+        }
+      },
+      {
+        "name": "STC",
+        "grade": "A+",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b3"
+        }
+      },
+      {
+        "name": "MWA",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b4"
+        }
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "60f9e93142e8c8bd1bc7d8ae"
+    },
+    "name": "Tomorjan",
+    "birthDate": "12/18/1990",
+    "courses": [
+      {
+        "name": "MPP",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b5"
+        }
+      },
+      {
+        "name": "WAA",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b6"
+        }
+      },
+      {
+        "name": "STC",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b7"
+        }
+      },
+      {
+        "name": "MWA",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b8"
+        }
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "60f9e93142e8c8bd1bc7d8af"
+    },
+    "name": "EMAD",
+    "birthDate": "08/07/1995",
+    "courses": [
+      {
+        "name": "MPP",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d8b9"
+        }
+      },
+      {
+        "name": "WAA",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d810"
+        }
+      },
+      {
+        "name": "STC",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d811"
+        }
+      },
+      {
+        "name": "MWA",
+        "grade": "unknown",
+        "_id": {
+          "$oid": "60f9edd142e8c8bd1bc7d812"
+        }
+      }
+    ]
+  }
+]
