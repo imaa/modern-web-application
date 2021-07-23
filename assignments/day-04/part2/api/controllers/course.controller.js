@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validateObjectIds = require("../utilities/objectIdValidator");
 const studentModel = mongoose.model("Student");
 const getStudentCourses = (req, res) => {
   if (req.query.limit > 100) {
@@ -11,11 +12,15 @@ const getStudentCourses = (req, res) => {
     });
     return;
   }
+  if (!validateObjectIds(req.params.sid)) {
+    res.status(400).json({
+      error: "Invalid student id api/students/:sid/courses",
+    });
+    return;
+  }
   studentModel
     .findById(req.params.sid)
     .select("courses")
-    .skip(parseInt(req.query.skip ?? 0))
-    .limit(parseInt(req.query.limit ?? 5))
     .exec((err, students) => {
       if (err) {
         res.status(500).json({ error: "Error occured" });
@@ -29,15 +34,16 @@ const getStudentCourse = (req, res) => {
     res.status(400).json({ error: "Id should be provided api/students/:id" });
     return;
   }
-  if (!req.params.sid) {
-    res.status(400).json({
-      error: "Student Id should be provided api/students/:sid/courses",
-    });
-    return;
-  }
+
   if (!req.params.cid) {
     res.status(400).json({
       error: "Course Id should be provided api/students/:sid/courses/:cid",
+    });
+    return;
+  }
+  if (!validateObjectIds([req.params.sid, req.params.cid])) {
+    res.status(400).json({
+      error: "Invalid student id or course id api/students/:sid/courses/:cid",
     });
     return;
   }

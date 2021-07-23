@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validateObjectIds = require("../utilities/objectIdValidator");
 const studentModel = mongoose.model("Student");
 const getAllStudents = (req, res) => {
   if (req.query.limit > 100) {
@@ -20,6 +21,12 @@ const getAllStudents = (req, res) => {
 const getSingleStudent = (req, res) => {
   if (!req.params.sid) {
     res.status(400).json({ error: "Id should be provided api/students/:id" });
+    return;
+  }
+  if (!validateObjectIds(req.params.sid)) {
+    res.status(400).json({
+      error: "Invalid student id api/students/:sid/courses",
+    });
     return;
   }
   studentModel.findById(req.params.sid).exec((err, student) => {
