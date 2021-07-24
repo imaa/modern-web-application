@@ -1,0 +1,6 @@
+npm run installAll // this will install all dependencies for all parts 
+
+npm start || nodemon /// on day-05 folder will start all the application (all parts)
+
+
+Just to make it easy on you if you will run my apps , and i got a little more experience while i configure this :)

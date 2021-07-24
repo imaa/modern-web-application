@@ -1,0 +1,22 @@
+{
+  "name": "part1",
+  "version": "1.0.0",
+  "description": " headless MEAN games application. For this section it is fine if your application only deals with games (no publisher and no reviews)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Expreess",
+    "Mongoos",
+    "Headless",
+    "app"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}

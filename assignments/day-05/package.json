@@ -1,0 +1,24 @@
+{
+  "name": "day-05",
+  "version": "1.0.0",
+  "description": "Day 05 assignments ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "installAll": "(cd part1 && npm install) & (cd.. &&cd part2 && npm install) & (cd.. &&cd part3 && npm install) & (cd.. &&cd part4 && npm install) ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Part1",
+    "Part2",
+    "Part3",
+    "Part4"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}
