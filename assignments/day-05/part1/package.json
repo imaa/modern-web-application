@@ -4,6 +4,7 @@
   "description": " headless MEAN games application. For this section it is fine if your application only deals with games (no publisher and no reviews)",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
