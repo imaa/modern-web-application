@@ -1,6 +1,32 @@
-npm run installAll // this will install all dependencies for all parts 
+# Day 5 Assignments
 
-npm start || nodemon /// on day-05 folder will start all the application (all parts)
+This Repo contains the four parts of the assignment. you can run all parts together  
+## Installation
+ 
 
+```npm
+// this will install all dependencies for all parts, run this on the root folder Day-05
+npm run installAll
+```
 
-Just to make it easy on you if you will run my apps , and i got a little more experience while i configure this :)
+```npm
+// run this on the root folder Day-05
+npm start
+```
+## OR
+```npm
+// run this on the root folder Dya-05
+ nodemon
+```
+
+## OR
+```npm
+// run this above commands on each part it will work also 
+ nodemon
+```
+
+## Notes
+
+Just to make it easy on you if you will run my apps, and I gain a little more experience while I configure this :)
+
+ 
