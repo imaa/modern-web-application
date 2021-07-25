@@ -7,9 +7,9 @@ const getIDEs = (req, res) => {
   const _plId = req.params[apiConfig.pls.id()];
   const skip = req.query.skip >= 0 ? getInt(req.query.skip) : 0;
   const limit =
-    req.query.limit > 0 && req.query.limit <= apiConfig.pls.maxListCount()
+    req.query.limit > 0 && req.query.limit <= apiConfig.pls.ides.maxListCount()
       ? getInt(req.query.limit)
-      : apiConfig.pls.defaultListCount();
+      : apiConfig.pls.ide.defaultListCount();
 
   PL.findById(_plId, "+ides")
     .select({
@@ -19,16 +19,16 @@ const getIDEs = (req, res) => {
       releaseDate: 0,
       founder: 0,
     })
-    .exec((err, ides) => {
-      const response = { status: 200, data: ides };
+    .exec((err, pl) => {
+      const response = { status: 200, data: pl };
       if (err) {
         response.status = 500;
         response.data = { error: `Error Occurred on the sever :${err}` };
       }
-      if (!ides) {
+      if (!pl) {
         _handlePLNotFound(response, _plId);
       }
-      res.status(response.status).json(response.data);
+      res.status(response.status).json(response.data.ides);
     });
 };
 const saveIDE = (req, res) => {
