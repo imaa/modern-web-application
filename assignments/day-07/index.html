@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Numbers">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJs</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./user/userController.js"></script>
+  <script src="./dataFactory/userFactorey.js"></script>
+</html>

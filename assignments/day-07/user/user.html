@@ -1,0 +1,33 @@
+<h1>Random Users</h1>
+Number of users :
+<input type="number" ng-model="uCtrl.numberOfUsers" ng-change="uCtrl.onChange()" />
+Gender :<input type="radio" name="gender" value="" ng-model="uCtrl.gender" ng-change="uCtrl.onChange()" />All
+<input type="radio" name="gender" value="male" ng-model="uCtrl.gender" ng-change="uCtrl.onChange()" />Male
+<input type="radio" name="gender" value="female" ng-model="uCtrl.gender" ng-change="uCtrl.onChange()" />Female
+<button type="button" ng-click="uCtrl.onChange()">Refresh</button>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>Picture</td>
+        <td>Gender</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Date of birth</td>
+        <td>age</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in uCtrl.users">
+        <td><img ng-src="{{user.picture.thumbnail}}" /></td>
+        <td><img width="40px" ng-src='{{user.gender=="male"?"./img/ma.png":"./img/fe.png"}}' /></td>
+        <td>{{user.name.first +" " +user.name.last}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.dob.date | date:"MM-dd-yyyy"}}</td>
+        <td>{{user.dob.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
