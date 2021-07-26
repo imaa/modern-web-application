@@ -24,6 +24,7 @@ Gender :<input type="radio" name="gender" value="" ng-model="uCtrl.gender" ng-ch
         <td><img width="40px" ng-src='{{user.gender=="male"?"./img/ma.png":"./img/fe.png"}}' /></td>
         <td>{{user.name.first +" " +user.name.last}}</td>
         <td>{{user.email}}</td>
+        +
         <td>{{user.phone}}</td>
         <td>{{user.dob.date | date:"MM-dd-yyyy"}}</td>
         <td>{{user.dob.age}}</td>
