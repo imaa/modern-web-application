@@ -9,12 +9,7 @@ const {
   deleteIDE,
 } = require("../controllers/ide.controller");
 
-const ideRouter = express.Router();
-ideRouter.route(apiConfig.pls.ides.path()).get(getIDEs).post(saveIDE);
-ideRouter
-  .route(apiConfig.pls.ides.full())
-  .get(getIDE)
-  .put(updateFullIDE)
-  .patch(updatePartialIDE)
-  .delete(deleteIDE);
-module.exports = ideRouter;
+module.exports.config = (router) => {
+  router.route(apiConfig.pls.ides.path()).get(getIDEs).post(saveIDE);
+  router.route(apiConfig.pls.ides.full()).get(getIDE).put(updateFullIDE).patch(updatePartialIDE).delete(deleteIDE);
+};
