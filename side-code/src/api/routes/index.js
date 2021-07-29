@@ -1,3 +1,4 @@
+const apiConfig = require("../configs/api.config");
 const ideRouter = require("./ide.router");
 const plRouter = require("./programingLanguage.router");
 
