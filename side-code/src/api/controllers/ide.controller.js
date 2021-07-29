@@ -9,7 +9,7 @@ const getIDEs = (req, res) => {
   const limit =
     req.query.limit > 0 && req.query.limit <= apiConfig.pls.ides.maxListCount()
       ? getInt(req.query.limit)
-      : apiConfig.pls.ide.defaultListCount();
+      : apiConfig.pls.ides.defaultListCount();
 
   PL.findById(_plId, "+ides")
     .select({
