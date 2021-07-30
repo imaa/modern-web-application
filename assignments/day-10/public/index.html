@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="JobFinder">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/bootswatch/dist/superhero/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/bootswatch/dist/superhero/bootstrap.min.css" />
+    <title>Job Finder</title>
+  </head>
+  <body>
+    <navigation></navigation>
+    <div class="container" ng-view></div>
+    <footer></footer>
+  </body>
+  <script src="assets/angular/angular.min.js"></script>
+  <script src="assets/angular-route/angular-route.min.js"></script>
+  <script src="assets/angular-jwt/dist/angular-jwt.min.js"></script>
+  <script src="assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./directives/navigation/navigation.js"></script>
+  <script src="./templates/jobs/jobs-controller.js"></script>
+  <script src="./factories/jobs.factory.js"></script>
+  <script src="./templates/jobs/add-job/add-job-controller.js"></script>
+  <script src="./templates/jobs/job/job-controller.js"></script>
+  <script src="./directives/login/login.js"></script>
+  <script src="./factories/users.factory.js"></script>
+  <script src="./templates/register/register-controller.js"></script>
+  <script src="./factories/auth.factory.js"></script>
+</html>

@@ -1,0 +1,67 @@
+<form name="vm.userForm" novalidate autocomplete="off" class="p-5" ng-submit="vm.register()">
+  <div class="text-center">
+    <h1>Register</h1>
+  </div>
+  <div class="row">
+    <div ng-if="vm.success" class="alert alert-success" role="alert">
+      <strong>Holy guacamole!</strong> User successfully created, please login.
+    </div>
+    <div ng-if="vm.error" class="alert alert-danger" role="alert"><strong>Oops!</strong>{{vm.error}}</div>
+    <div class="form-group col-sm-6">
+      <label for="title">Name </label>
+      <input
+        type="text"
+        class="form-control"
+        ng-class="{'is-invalid':vm.userForm.user.$invalid && vm.userForm.user.$dirty}"
+        name="name"
+        id="name"
+        ng-model="vm.user.name"
+        required
+      />
+      <div class="invalid-feedback">User Name is required</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="title">User Name </label>
+      <input
+        type="text"
+        class="form-control"
+        ng-class="{'is-invalid':vm.userForm.userName.$invalid && vm.userForm.userName.$dirty}"
+        name="userName"
+        id="userName"
+        ng-model="vm.user.userName"
+        required
+      />
+      <div class="invalid-feedback">User Name is required</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="title">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        ng-class="{'is-invalid':vm.userForm.password.$invalid && vm.userForm.password.$dirty}"
+        name="password"
+        id="password"
+        ng-model="vm.user.password"
+        required
+      />
+      <div class="invalid-feedback">password is required</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="title">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        ng-class="{'is-invalid':vm.userForm.confirmPassword.$invalid && vm.userForm.confirmPassword.$dirty}"
+        name="confirmPassword"
+        id="confirmPassword"
+        ng-model="vm.user.confirmPassword"
+        required
+      />
+      <div class="invalid-feedback">Confirm Password is required</div>
+    </div>
+    <div class="form-group col-sm-12 pt-2">
+      <button type="submit" ng-disabled="vm.userForm.$invalid" class="btn btn-primary">Register</button>
+      <button type="button" class="btn btn-warning" ng-click="vm.clearForm()">Clear</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,10 @@
+const jobRouter = require("./job.router");
+const skillRouter = require("./skill.router");
+const userRouter = require("./user.router");
+const accountRouter = require("./account.router");
+const router = require("express").Router();
+jobRouter.config(router);
+skillRouter.config(router);
+userRouter.config(router);
+accountRouter.config(router);
+module.exports = router;

@@ -1,0 +1,67 @@
+<div class="text-center pt-5" ng-if="!vm.jobs.length">
+  <div class="alert alert-info" role="alert">
+    <strong>Oops, no jobs available right now</strong>
+  </div>
+</div>
+<div class="row pt-5">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          &#x1F50D; Filter
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body bg-light">
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <label for="fromDate">Search :</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search..."
+                name="searchText"
+                id="searchText"
+                ng-model="vm.searchText"
+              />
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="fromDate">From Date :</label>
+              <input type="datetime-local" class="form-control" name="fromDate" id="fromDate" ng-model="vm.fromDate" />
+            </div>
+            <div class="form-group col-sm-3">
+              <label for="toDate">To Date :</label>
+              <input type="datetime-local" class="form-control" name="toDate" id="toDate" ng-model="vm.toDate" />
+            </div>
+            <div class="form-group col-sm-2">
+              <button type="button" class="btn btn-primary mt-4" ng-click="vm.filter();">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card col-3" ng-repeat="job in vm.jobs">
+      <div class="card-body">
+        <h4 class="card-title">{{job.title}}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{job.salary |currency}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{job.postDate |date}}</h6>
+        <p class="card-text">{{job.description.substring(0,100)}}....</p>
+        <a href="#!/jobs/{{job._id}}" class="btn btn-primary">View Job</a>
+        <a href="#!/jobs/update/{{job._id}}" class="btn btn-warning">Edit</a>
+        <a ng-click="vm.deleteJob(job._id)" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>

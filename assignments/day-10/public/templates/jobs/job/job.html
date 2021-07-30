@@ -1,0 +1,18 @@
+<div class="row pt-5">
+  <div class="card col-12">
+    <div class="card-body">
+      <h4>Title :</h4>
+      <h2 class="card-title">{{vm.job.title}}</h2>
+      <h4>Salary :</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{vm.job.salary |currency}}</h6>
+      <h4>Post Date:</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{vm.job.postDate |date}}</h6>
+      <h4>Description:</h4>
+      <p class="card-text">{{vm.job.description }}</p>
+      <h4>Experience:</h4>
+      <p class="card-text">{{vm.job.experience }}</p>
+      <a href="#!/jobs/update/{{vm.job._id}}" class="btn btn-warning">Edit</a>
+      <a ng-click="vm.deleteJob(vm.job._id)" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>

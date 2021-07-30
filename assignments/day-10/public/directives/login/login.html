@@ -1,0 +1,15 @@
+<form class="d-flex" ng-submit="vm.login()" ng-hide="vm.isAuthenticated">
+  <input class="form-control me-sm-2" name="userName" type="text" ng-model="vm.user.userName" placeholder="User Name" />
+  <input
+    class="form-control me-sm-2"
+    name="password"
+    type="password"
+    ng-model="vm.user.password"
+    placeholder="Password"
+  />
+  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
+</form>
+<div class="d-flex" ng-show="vm.isAuthenticated">
+  <strong>Hello, </strong> {{vm.loginUser.name}} ....
+  <a ng-click="vm.logout()" class="link-light">Logout</a>
+</div>

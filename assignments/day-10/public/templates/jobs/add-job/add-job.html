@@ -1,0 +1,101 @@
+<form name="vm.jobForm" novalidate autocomplete="off" class="p-5" ng-submit="vm.saveJob()">
+  <div class="text-center">
+    <h1>{{vm.jobId?"Update Job":"Add new job"}}</h1>
+  </div>
+  <div class="row">
+    <div ng-if="vm.success" class="alert alert-success" role="alert">
+      <strong>Holy guacamole!</strong> Job {{vm.jobId?"updated":"saved"}} successfully.
+    </div>
+    <div ng-if="vm.error" class="alert alert-danger" role="alert"><strong>Oops!</strong>{{vm.error}}</div>
+    <div class="form-group col-sm-6">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        ng-class="{'is-invalid':vm.jobForm.title.$invalid && vm.jobForm.title.$dirty}"
+        name="title"
+        id="title"
+        ng-model="vm.job.title"
+        required
+      />
+      <div class="invalid-feedback">Job title is required</div>
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="title">Salary</label>
+      <input
+        type="text"
+        class="form-control"
+        ng-class="{'is-invalid':vm.jobForm.salary.$invalid && vm.jobForm.salary.$dirty}"
+        name="salary"
+        id="salary"
+        pattern="[0-9](.){1,8}$"
+        ng-model="vm.job.salary"
+        required
+      />
+      <div class="invalid-feedback">
+        <p ng-show="vm.jobForm.salary.$error.required">Salary is required</p>
+        <p ng-show="vm.jobForm.salary.$error.pattern">Salary should be number and less than 5 digits</p>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <fieldset class="row">
+        <legend>Location</legend>
+        <div class="form-group col-sm-4">
+          <label for="title">Street</label>
+          <input type="text" class="form-control" name="street" id="street" ng-model="vm.job.location.street" />
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="title">city</label>
+          <input type="text" class="form-control" name="city" id="city" ng-model="vm.job.location.city" />
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="title">State</label>
+          <input type="text" class="form-control" name="state" id="state" ng-model="vm.job.location.state" />
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="title">Zip code</label>
+          <input type="text" class="form-control" name="zip" id="zip" ng-model="vm.job.location.zip" />
+        </div>
+        <div class="form-group col-sm-4" ng-init="!vm.job.location.coordinates&&vm.job.location.coordinates=[]">
+          <label for="title">Coordinates</label>
+          <div class="row">
+            <div class="col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                name="lng"
+                id="lng"
+                placeholder="Longitude"
+                ng-model="vm.job.location.coordinates[0]"
+              />
+            </div>
+            <div class="col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                name="lat"
+                id="lat"
+                placeholder="Latitude"
+                ng-model="vm.job.location.coordinates[1]"
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="form-group col-sm-12">
+      <label for="description">Description</label>
+      <textarea class="form-control" name="description" ng-model="vm.job.description"></textarea>
+    </div>
+    <div class="form-group col-sm-12">
+      <label for="description">Experience</label>
+      <textarea class="form-control" name="experience" ng-model="vm.job.experience"></textarea>
+    </div>
+    <div class="form-group col-sm-12 pt-2">
+      <button type="submit" ng-disabled="vm.jobForm.$invalid" class="btn btn-primary">
+        {{vm.jobId?"Update":"Add Job"}}
+      </button>
+      <button type="button" class="btn btn-warning" ng-click="vm.clearForm()">Clear</button>
+    </div>
+  </div>
+</form>
