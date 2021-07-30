@@ -49,7 +49,7 @@ function getJobs(req, res) {
         : configs.apiConfig.job.defaultListLimit()
     )
     .exec((err, jobs) => {
-      const response = jobResponse(HTTP_STATUS.OK, jobs);
+      let response = jobResponse(HTTP_STATUS.OK, jobs);
       if (err) {
         console.log(err);
         response = serverErrorResponse();
@@ -60,7 +60,7 @@ function getJobs(req, res) {
 function getJob(req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
   Job.findById(_id).exec((err, job) => {
-    const response = jobResponse(HTTP_STATUS.OK, job);
+    let response = jobResponse(HTTP_STATUS.OK, job);
     if (err) {
       response.status = HTTP_STATUS.SERVER_ERROR;
       response.data = { message: "Error occurred while finding the job" };
@@ -74,7 +74,7 @@ function getJob(req, res) {
 }
 function deleteJob(req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
-  const response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
+  let response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
   Job.findOneAndDelete(_id).exec((err, job) => {
     if (err) {
       response = serverErrorResponse();
@@ -87,7 +87,7 @@ function deleteJob(req, res) {
   });
 }
 function addJob(req, res) {
-  const response = jobResponse(HTTP_STATUS.NOT_ACCEPTED, null);
+  let response = jobResponse(HTTP_STATUS.NOT_ACCEPTED, null);
   const job = new Job({
     title: req.body.title,
     salary: numbers.getFloat(req.body.salary),
@@ -97,11 +97,12 @@ function addJob(req, res) {
   });
   if (req.body.location) {
     job.location = {
+      companyName: req.body.location.companyName,
       street: req.body.location.street,
       zip: req.body.location.street,
       state: req.body.location.street,
-      country: req.body.location.street,
-      coordinates: req.body.location.street,
+      city: req.body.location.city,
+      coordinates: req.body.location.coordinates,
     };
   }
   job.validate((err) => {
@@ -144,8 +145,30 @@ function _updateJob(isFullUpdate, req, res) {
   if (!req.body.experience || isFullUpdate) {
     jobUpdate.experience = req.body.experience;
   }
+  if (req.body.location || isFullUpdate) {
+    job.location = {};
+
+    if (req.body.location.companyName || isFullUpdate) {
+      job.location.companyName = req.body.location.companyName;
+    }
+    if (req.body.location.street || isFullUpdate) {
+      job.location.street = req.body.location.street;
+    }
+    if (req.body.location.zip || isFullUpdate) {
+      job.location.zip = req.body.location.zip;
+    }
+    if (req.body.location.state || isFullUpdate) {
+      job.location.state = req.body.location.state;
+    }
+    if (req.body.location.city || isFullUpdate) {
+      job.location.city = req.body.location.city;
+    }
+    if (req.body.location.coordinates || isFullUpdate) {
+      job.location.coordinates = req.body.location.coordinates;
+    }
+  }
   Job.findByIdAndUpdate(_id, jobUpdate, (err, doc) => {
-    const response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
+    let response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
     if (err) {
       response = serverErrorResponse();
     }

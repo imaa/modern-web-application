@@ -14,7 +14,7 @@ function getUsers(req, res) {
         : configs.apiConfig.user.defaultListLimit()
     )
     .exec((err, users) => {
-      const response = jobResponse(HTTP_STATUS.OK, users);
+      let response = jobResponse(HTTP_STATUS.OK, users);
       if (err) {
         response = serverErrorResponse();
       }
@@ -24,7 +24,7 @@ function getUsers(req, res) {
 function getUser(req, res) {
   const _id = req.params[configs.apiConfig.user.id()];
   User.findById(_id).exec((err, user) => {
-    const response = jobResponse(HTTP_STATUS.OK, user);
+    let response = jobResponse(HTTP_STATUS.OK, user);
     if (err) {
       response = serverErrorResponse();
     }
@@ -37,7 +37,7 @@ function getUser(req, res) {
 }
 function deleteUser(req, res) {
   const _id = req.params[configs.apiConfig.user.id()];
-  const response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
+  let response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
   User.findOneAndDelete(_id).exec((err, user) => {
     if (err) {
       response = serverErrorResponse();
@@ -68,7 +68,7 @@ function _updateUser(isFullUpdate, req, res) {
     userUpdate.userName = req.body.userName;
   }
   User.findByIdAndUpdate(_id, userUpdate, (err, doc) => {
-    const response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
+    let response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
     if (err) {
       response = serverErrorResponse();
     }

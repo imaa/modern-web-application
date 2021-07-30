@@ -10,6 +10,6 @@
   <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
 </form>
 <div class="d-flex" ng-show="vm.isAuthenticated">
-  <strong>Hello, </strong> {{vm.loginUser.name}} ....
-  <a ng-click="vm.logout()" class="link-light">Logout</a>
+  <p class="form-label"><strong>Hello, </strong> {{vm.loginUser.name}} ....</p>
+  <button class="btn btn-secondary my-2 my-sm-0" type="button" ng-click="vm.logout()">Logout</button>
 </div>

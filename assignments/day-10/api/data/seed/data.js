@@ -3,6 +3,7 @@ const seedData = [
     title: "Application Developer",
     salary: 1500.5,
     location: {
+      companyName: "Google inc.",
       street: "1231 S Pound",
       zip: 45633,
       state: "IL",
@@ -32,6 +33,7 @@ Developing technical documentation to guide future software development projects
         level: 10,
       },
     ],
+    reviews: [{ review: "Nice , i got a job offer in this company", nameOfReviewer: "Ibrahim" }],
   },
 ];
 module.exports = seedData;

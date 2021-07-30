@@ -11,6 +11,48 @@
       <p class="card-text">{{vm.job.description }}</p>
       <h4>Experience:</h4>
       <p class="card-text">{{vm.job.experience }}</p>
+      <h4>Reviews:</h4>
+      <div class="container">
+        <table class="table table-striped">
+          <tbody>
+            <tr ng-repeat="review in vm.reviews">
+              <td>
+                <strong>{{review.review}}</strong>
+                <div>
+                  <small>By :{{review.nameOfReviewer}}, {{review.date | date}}</small>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <form novalidate name="vm.reviewForm" ng-submit="vm.postReview()">
+                  <div ng-if="vm.success" class="alert alert-success" role="alert">
+                    <strong>Holy guacamole!</strong> Review added successfully.
+                  </div>
+                  <div ng-if="vm.error" class="alert alert-danger" role="alert"><strong>Oops!</strong>{{vm.error}}</div>
+
+                  <div class="form-group">
+                    <label>Add new review :</label>
+                    <textarea
+                      class="form-control"
+                      required
+                      name="review"
+                      ng-model="vm.review.review"
+                      ng-class="{'is-invalid':vm.reviewForm.review.$invalid && vm.reviewForm.review.$dirty}"
+                    ></textarea>
+                    <div class="invalid-feedback">Review is required</div>
+                  </div>
+                  <button type="submit" ng-disabled="vm.reviewForm.$invalid" class="btn btn-primary mt-4">
+                    Post Review
+                  </button>
+                </form>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
       <a href="#!/jobs/update/{{vm.job._id}}" class="btn btn-warning">Edit</a>
       <a ng-click="vm.deleteJob(vm.job._id)" class="btn btn-danger">Delete</a>
     </div>

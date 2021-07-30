@@ -18,6 +18,11 @@ const skillSchema = mongoose.Schema({
     max: 10,
   },
 });
+const reviewSchema = mongoose.Schema({
+  date: { type: Date, default: () => Date.now() },
+  review: String,
+  nameOfReviewer: String,
+});
 const jobSchema = mongoose.Schema({
   title: {
     type: String,
@@ -39,6 +44,11 @@ const jobSchema = mongoose.Schema({
     required: false,
   },
   postDate: { type: Date, default: () => Date.now() },
+  reviews: {
+    type: [reviewSchema],
+    select: false,
+    require: false,
+  },
 });
 
 mongoose.model(configs.dbConfig.models.job.name, jobSchema, configs.dbConfig.models.job.collectionName);

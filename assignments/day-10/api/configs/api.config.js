@@ -15,6 +15,13 @@ const config = {
       maxListLimit: () => 20,
       defaultListLimit: () => 5,
     },
+    review: {
+      id: () => "rId",
+      path: () => config.job.full() + "/reviews/",
+      full: () => config.job.review.path() + _paramPrefix + config.job.review.id(),
+      maxListLimit: () => 50,
+      defaultListLimit: () => 5,
+    },
   },
   user: {
     id: () => "id",

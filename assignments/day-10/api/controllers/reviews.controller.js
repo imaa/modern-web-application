@@ -1,24 +1,25 @@
 const { config } = require("dotenv");
+const e = require("express");
 const mongoose = require("mongoose");
 const configs = require("../configs");
 const { HTTP_STATUS } = require("../helpers/httpStatus");
 const { numbers } = require("../helpers/numbers");
-const { jobResponse, completeRequest } = require("../helpers/response");
+const { jobResponse, completeRequest, serverErrorResponse } = require("../helpers/response");
 const Job = mongoose.model(configs.dbConfig.models.job.name);
-function getSkills(req, res) {
+function getReviews(req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
   const skip = req.query.skip >= 0 ? numbers.getInt(req.query.skip) : 0;
   const limit =
-    req.query.limit > 0 && req.query.limit <= configs.apiConfig.job.skill.maxListLimit()
+    req.query.limit > 0 && req.query.limit <= configs.apiConfig.job.review.maxListLimit()
       ? numbers.getInt(req.query.limit)
-      : configs.apiConfig.job.skill.defaultListLimit();
+      : configs.apiConfig.job.review.defaultListLimit();
 
-  Job.findById(_id, "+skills")
+  Job.findById(_id, "+reviews")
     .select({
-      skills: { $slice: [skip, limit + skip] },
+      reviews: { $slice: [skip, limit + skip] },
     })
     .exec((err, job) => {
-      let response = jobResponse(HTTP_STATUS.OK, job?.skills);
+      let response = jobResponse(HTTP_STATUS.OK, job?.reviews);
       if (err) {
         response = serverErrorResponse();
       }
@@ -29,10 +30,10 @@ function getSkills(req, res) {
       completeRequest(res, response);
     });
 }
-function getSkill(req, res) {
+function getReview(req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
-  const _sid = req.params[configs.apiConfig.job.skill.id()];
-  Job.findById(_id, "+skills").exec((err, job) => {
+  const _rid = req.params[configs.apiConfig.job.review.id()];
+  Job.findById(_id, "+reviews").exec((err, job) => {
     let response = jobResponse(HTTP_STATUS.OK, null);
     if (err) {
       response = serverErrorResponse();
@@ -41,22 +42,22 @@ function getSkill(req, res) {
       response.status = HTTP_STATUS.NOT_FOUND;
       response.data = { message: `Job with the following id ${_id} not found` };
     } else {
-      skill = job.skills.id(_sid);
-      if (!skill) {
+      review = job.reviews.id(_rid);
+      if (!review) {
         response.status = HTTP_STATUS.NOT_FOUND;
-        response.data = { message: `Skill with the following id ${_id} not found` };
+        response.data = { message: `Review with the following id ${_id} not found` };
       } else {
         response.status = HTTP_STATUS.OK;
-        response.data = skill;
+        response.data = review;
       }
     }
     completeRequest(res, response);
   });
 }
-function deleteSkill(req, res) {
+function deleteReview(req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
-  const _sid = req.params[configs.apiConfig.job.skill.id()];
-  Job.findById(_id, "+skills").exec((err, job) => {
+  const _rid = req.params[configs.apiConfig.job.review.id()];
+  Job.findById(_id, "+reviews").exec((err, job) => {
     let response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
     if (err) {
       response = serverErrorResponse();
@@ -67,19 +68,19 @@ function deleteSkill(req, res) {
       response.data = { message: `Job with the following id ${_id} not found` };
       completeRequest(res, response);
     } else {
-      skill = job.skills.id(_sid);
-      if (!skill) {
+      review = job.reviews.id(_rid);
+      if (!review) {
         response.status = HTTP_STATUS.NOT_FOUND;
-        response.data = { message: `Skill with the following id ${_id} not found` };
+        response.data = { message: `Review with the following id ${_id} not found` };
         completeRequest(res, response);
       } else {
-        job.skills.pull(_sid);
+        job.reviews.pull(_rid);
         job.save((err, job) => {
           if (err) {
             response.status = HTTP_STATUS.SERVER_ERROR;
-            response.data = { message: "Error occurred while adding new skill" };
+            response.data = { message: "Error occurred while adding new review" };
           } else {
-            response.data = skill;
+            response.data = review;
           }
           completeRequest(res, response);
         });
@@ -87,47 +88,48 @@ function deleteSkill(req, res) {
     }
   });
 }
-function addSkill(req, res) {
+function addReview(req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
-  const skill = {
+  const review = {
     _id: mongoose.Types.ObjectId(),
-    title: req.body.title,
-    level: req.body.level,
+    review: req.body.review,
+    nameOfReviewer: req.body.nameOfReviewer,
   };
-  Job.findById(_id, "+skills").exec((err, job) => {
+  Job.findById(_id, "+reviews").exec((err, job) => {
     let response = jobResponse(HTTP_STATUS.CREATED, null);
     if (err) {
       response = serverErrorResponse();
       completeRequest(res, response);
       console.log(err);
+      console.log(req.body);
     } else if (!job) {
       response.status = HTTP_STATUS.NOT_FOUND;
       response.data = { message: `Job with the following id ${_id} not found` };
       completeRequest(res, response);
     } else {
-      job.skills.push(skill);
+      job.reviews.push(review);
       job.save((err, job) => {
         if (err) {
           response.status = HTTP_STATUS.SERVER_ERROR;
-          response.data = { message: "Error occurred while adding new skill" };
+          response.data = { message: "Error occurred while adding new review" };
         } else {
-          response.data = skill;
+          response.data = review;
         }
         completeRequest(res, response);
       });
     }
   });
 }
-function updateFullSkill(req, res) {
-  _updateSkill(true, req, res);
+function updateFullReview(req, res) {
+  _updateReview(true, req, res);
 }
-function updatePartialSkill(req, res) {
-  _updateSkill(false, req, res);
+function updatePartialReview(req, res) {
+  _updateReview(false, req, res);
 }
-function _updateSkill(isFullUpdate, req, res) {
+function _updateReview(isFullUpdate, req, res) {
   const _id = req.params[configs.apiConfig.job.id()];
-  const _sid = req.params[configs.apiConfig.job.skill.id()];
-  Job.findById(_id, "+skills").exec((err, job) => {
+  const _rid = req.params[configs.apiConfig.job.review.id()];
+  Job.findById(_id, "+reviews").exec((err, job) => {
     let response = jobResponse(HTTP_STATUS.NO_CONTENT, null);
     if (err) {
       response = serverErrorResponse();
@@ -137,12 +139,12 @@ function _updateSkill(isFullUpdate, req, res) {
       response.data = { message: `Job with the following id ${_id} not found` };
       completeRequest(res, response);
     } else {
-      skill = job.skills.id(_sid);
-      if (req.body.title || isFullUpdate) {
-        skill.title = req.body.title;
+      review = job.reviews.id(_rid);
+      if (req.body.review || isFullUpdate) {
+        review.review = req.body.review;
       }
-      if (req.body.level || isFullUpdate) {
-        skill.level = numbers.getInt(req.body.level);
+      if (req.body.nameOfReviewer || isFullUpdate) {
+        review.nameOfReviewer = eq.body.nameOfReviewer;
       }
       job.save((err, job) => {
         if (err) {
@@ -154,10 +156,10 @@ function _updateSkill(isFullUpdate, req, res) {
   });
 }
 module.exports = {
-  getSkill: getSkill,
-  getSkills: getSkills,
-  updateFullSkill: updateFullSkill,
-  updatePartialSkill: updatePartialSkill,
-  deleteSkill: deleteSkill,
-  addSkill: addSkill,
+  getReview: getReview,
+  getReviews: getReviews,
+  updateFullReview: updateFullReview,
+  updatePartialReview: updatePartialReview,
+  deleteReview: deleteReview,
+  addReview: addReview,
 };
