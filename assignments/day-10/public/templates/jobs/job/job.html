@@ -11,6 +11,15 @@
       <p class="card-text">{{vm.job.description }}</p>
       <h4>Experience:</h4>
       <p class="card-text">{{vm.job.experience }}</p>
+      <h4>Skills:</h4>
+      <ul>
+        <ul ng-repeat="skill in vm.job.skills">
+          <strong>Skill :</strong>
+          {{skill.title}}
+          <strong> Level:</strong>
+          {{skill.level}}
+        </ul>
+      </ul>
       <h4>Reviews:</h4>
       <div class="container">
         <table class="table table-striped">

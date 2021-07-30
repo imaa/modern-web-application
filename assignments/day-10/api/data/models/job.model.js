@@ -40,7 +40,6 @@ const jobSchema = mongoose.Schema({
   experience: String,
   skills: {
     type: [skillSchema],
-    select: false,
     required: false,
   },
   postDate: { type: Date, default: () => Date.now() },

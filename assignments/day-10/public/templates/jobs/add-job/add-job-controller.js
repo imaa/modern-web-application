@@ -11,7 +11,33 @@ function addJobController(jobsFactory, $routeParams, $location) {
       .catch((err) => {
         vm.error = err?.message ?? err.statusText;
       });
+  } else {
+    vm.job = {};
+    vm.job.location = {};
+    vm.job.location.coordinates = [];
   }
+
+  vm.deleteSkill = (skill) => {
+    if (confirm("Are your sure you want to delete this skill?")) {
+      if (skill._id) {
+        jobsFactory
+          .deleteSkill(vm.job._id, sid)
+          .then(() => {
+            jobsFactory
+              .getSkills(vm.job._id)
+              .then((skills) => {
+                this.job.skills = skills;
+              })
+              .catch();
+            alert("Success");
+          })
+          .catch();
+      } else {
+        vm.job.skills.splice(vm.job.skills.indexOf(skill), 1);
+        alert("Success");
+      }
+    }
+  };
   vm.saveJob = () => {
     vm.error = null;
     if (vm.jobForm.$valid) {
@@ -42,12 +68,20 @@ function addJobController(jobsFactory, $routeParams, $location) {
       }
     }
   };
+  vm.addSkill = () => {
+    if (!vm.job.skills) {
+      vm.job.skills = [];
+    }
+    vm.job.skills.push(vm.skill);
+    vm.skill = [];
+  };
   vm.clearForm = () => {
     vm.error = null;
     vm.success = false;
     $location.path("/");
     vm.job = {};
-    vm.job.location = [];
+    vm.job.location = {};
+    vm.job.location.coordinates = [];
     vm.jobForm.$setPristine();
   };
 }

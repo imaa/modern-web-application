@@ -13,6 +13,22 @@ function addJobController(jobsFactory, $routeParams, $location, authFactory) {
         .catch();
     }
   };
+  vm.deleteSkill = (sid) => {
+    if (confirm("Are your sure you want to delete this skill?")) {
+      jobsFactory
+        .deleteSkill(vm.job._id, sid)
+        .then(() => {
+          jobsFactory
+            .getSkills(vm.job._id)
+            .then((skills) => {
+              this.job.skills = skills;
+            })
+            .catch();
+          alert("Success");
+        })
+        .catch();
+    }
+  };
   vm.postReview = (id) => {
     vm.error = null;
     vm.success = false;
@@ -36,17 +52,20 @@ function addJobController(jobsFactory, $routeParams, $location, authFactory) {
       }
     }
   };
-  if (vm.jobId) {
-    jobsFactory
-      .getJob(vm.jobId)
-      .then((job) => {
-        vm.job = job;
-        vm.getReviews();
-      })
-      .catch((err) => {
-        vm.error = err?.message ?? err.statusText;
-      });
-  }
+  vm.getJob = () => {
+    if (vm.jobId) {
+      jobsFactory
+        .getJob(vm.jobId)
+        .then((job) => {
+          vm.job = job;
+          vm.getReviews();
+        })
+        .catch((err) => {
+          vm.error = err?.message ?? err.statusText;
+        });
+    }
+  };
+  vm.getJob();
   vm.getReviews = function () {
     jobsFactory
       .getReviews(vm.jobId)

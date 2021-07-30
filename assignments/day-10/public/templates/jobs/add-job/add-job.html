@@ -55,8 +55,8 @@
         <div class="form-group col-sm-4">
           <label for="title">Zip code</label>
           <input type="text" class="form-control" name="zip" id="zip" ng-model="vm.job.location.zip" />
-        </div>
-        <div class="form-group col-sm-4" ng-init="!vm.job.location.coordinates&&vm.job.location.coordinates=[]">
+        </div> 
+        <div class="form-group col-sm-4" ng-init= >
           <label for="title">Coordinates</label>
           <div class="row">
             <div class="col-sm-6">
@@ -82,6 +82,32 @@
           </div>
         </div>
       </fieldset>
+    </div>
+    <div class="col-sm-12 row">
+      <label for="title"><h4>Skills</h4></label>
+      <div class="form-group col-sm-5">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="skillTitle" id="skillTitle" ng-model="vm.skill.title" />
+      </div>
+      <div class="form-group col-sm-5">
+        <label for="title">level</label>
+        <input type="number" class="form-control" name="skillLevel" id="skillLevel" ng-model="vm.skill.level" />
+      </div>
+
+      <div class="form-group col-sm-2 mt-4">
+        <button class="btn btn-primary" ng-click="vm.addSkill()">Add Skill</button>
+      </div>
+      <div class="form-group col-sm-12">
+        <ul>
+          <ul ng-repeat="skill in vm.job.skills">
+            <strong>Skill :</strong>
+            {{skill.title}}
+            <strong> Level:</strong>
+            {{skill.level}}
+            <button class="btn btn-danger" type="button" ng-click="vm.deleteSkill(skill)">X</button>
+          </ul>
+        </ul>
+      </div>
     </div>
     <div class="form-group col-sm-12">
       <label for="description">Description</label>

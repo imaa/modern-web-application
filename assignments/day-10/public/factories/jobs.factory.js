@@ -18,8 +18,14 @@ function jobsFactory($http) {
   function deleteJob(id) {
     return $http.delete(`/api/jobs/${id}`).then(complete).catch(failure);
   }
+  function deleteSkill(id, skillId) {
+    return $http.delete(`/api/jobs/${id}/skills/${skillId}`).then(complete).catch(failure);
+  }
   function getReviews(jobId) {
     return $http.get(`/api/jobs/${jobId}/reviews?limit=50`).then(complete).catch(failure);
+  }
+  function getSkills(jobId) {
+    return $http.get(`/api/jobs/${jobId}/skills?limit=50`).then(complete).catch(failure);
   }
   function addReview(jobId, review) {
     return $http.post(`/api/jobs/${jobId}/reviews`, review).then(complete).catch(failure);
@@ -38,5 +44,7 @@ function jobsFactory($http) {
     deleteJob: deleteJob,
     getReviews: getReviews,
     addReview: addReview,
+    deleteSkill: deleteSkill,
+    getSkills: getSkills,
   };
 }
