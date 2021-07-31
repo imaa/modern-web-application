@@ -1,0 +1,77 @@
+<h1>
+    Weather List
+</h1>
+<div class="row" name="vm.searchForm">
+    <form name="vm.searchForm">
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label>
+                    longitude
+                </label>
+                <input type="text" class="from-control" name="lng" ng-model="vm.lng" />
+                <div>
+                    This is required
+                </div>
+            </div>
+            <div class="form-group col-sm-3"> <label>
+                    latitude:
+                </label>
+                <input type="text" class="from-control" name="lat" ng-model="vm.lat" />
+                <div>
+                    This is required
+                </div>
+            </div>
+
+            <div class="form-group col-sm-3"> <label>
+                    distance:
+                </label>
+                <input type="text" class="from-control" name="distance" ng-model="vm.distance" />
+            </div>
+            <div class="form-group col-sm-2">
+
+                <button type="button" class="btn btn-primary" ng-click="vm.search()">Search</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+<table class="table table-stripe">
+    <thead>
+        <tr>
+            <td>
+                Seq #
+            </td>
+            <td>
+                Reading Date
+            </td>
+            <td>
+                Coordinates
+            </td>
+            <td>
+                Operations
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in vm.data track by $index ">
+            <td>
+                {{$index+1}}
+            </td>
+            <td>
+                {{item.ts | date}}
+            </td>
+            <td>
+                longitude : {{item.position.coordinates[0]}}
+                latitude: {{item.position.coordinates[1]}}
+            </td>
+            <td>
+                <a href="#!/weather/{{item._id}}" class="btn btn-primary">View Details</a>
+                <a ng-click="vm.delete(item._id)" class="btn btn-danger"> Delete</a>
+            </td>
+        </tr>
+    <tfoot>
+        <button class="btn btn-primary" ng-disabled="!vm.page" ng-click="vm.previuse()">Previuse</button>
+        <button class="btn btn-primary" ng-click="vm.next()">Next</button>
+    </tfoot>
+    </tbody>
+</table>

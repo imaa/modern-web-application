@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Weather">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="node_modules/bootswatch/dist/superhero/bootstrap.min.css">
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <title>Weather</title>
+    </head>
+
+    <body>
+        <div class="container" ng-view>
+
+        </div>
+    </body>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./weather-list/weather-list-controller.js"></script>
+    <script src="./weather-info/weather-info-controller.js"></script>
+    <script src="./factories/weather-factory.js"></script>
+
+</html>

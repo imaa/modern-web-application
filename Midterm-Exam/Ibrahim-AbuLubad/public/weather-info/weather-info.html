@@ -1,0 +1,49 @@
+Weather Info on {{ vm.weatherInfo.ts | date}}
+
+
+<table class="table table-stripe">
+
+    <tbody>
+        <tr>
+            <td>
+                Location :
+            </td>
+            <td>
+                longitude : {{vm.weatherInfo.position.coordinates[0]}}
+                latitude: {{vm.weatherInfo.position.coordinates[1]}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                temperature :
+            </td>
+            <td>
+                {{vm.weatherInfo.airTemperature}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                wind speed :
+            </td>
+            <td>
+                {{vm.weatherInfo.wind.speed}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                visibility :
+            </td>
+            <td>
+                {{vm.weatherInfo.visibility}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Estimated precipitation :
+            </td>
+            <td>
+                {{vm.weatherInfo.precipitationEstimatedObservation}}
+            </td>
+        </tr>
+    </tbody>
+</table>
