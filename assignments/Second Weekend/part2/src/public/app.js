@@ -1,34 +1,33 @@
-angular.module("meanGames", ["ngRoute", "angular-jwt"]).config(config).run(run);
+angular.module("pl", ["ngRoute", "angular-jwt"]).config(config).run(run);
 
 function config($routeProvider, $httpProvider) {
   $httpProvider.interceptors.push("AuthInterceptor");
   $routeProvider
     .when("/", {
-      templateUrl: "angular-js/home/home.html",
+      templateUrl: "home/home.html",
     })
     .when("/register", {
-      templateUrl: "angular-js/register/register.html",
+      templateUrl: "register/register.html",
       controller: "registerController",
       controllerAs: "vm",
     })
     .when("/profile", {
-      templateUrl: "angular-js/profile/profile.html",
+      templateUrl: "profile/profile.html",
       controller: "profileController",
       controllerAs: "vm",
       access: { restricted: true },
     })
-    .when("/games", {
-      templateUrl: "angular-js/games/games.html",
-      controller: "gamesController",
+    .when("/pls", {
+      templateUrl: "programing-languages/programing-languages.html",
+      controller: "programingLanguages",
       controllerAs: "vm",
     })
-    .when("/game/:id", {
-      templateUrl: "angular-js/game/game.html",
-      controller: "gameController",
-      controllerAs: "ctrl",
+    .when("/pl/:id", {
+      templateUrl: "programing-language/programing-language.html",
+      controller: "programingLanguage",
+      controllerAs: "pl",
     });
 }
-
 function run($rootScope, $location, $window, authFactory) {
   $rootScope.$on("$routeChangeStart", function (event, nextRoute, currentRoute) {
     if (

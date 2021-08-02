@@ -1,0 +1,72 @@
+<div class="container pt-5">
+  <h1>Programing Languages</h1>
+  <div class="row">
+    <div class="col-sm-10">
+      <input type="text" ng-model="vm.searchText" class="form-control" name="searchText" />
+    </div>
+      <div class="col-sm-2"><button ng-click="vm.search()" class="btn btn-primary">Search</button> 
+      </div>
+    </div>
+    <strong>
+      <ul>
+        <li ng-repeat="pl in vm.programingLanguages">
+          <a href="#!/pl/{{pl._id}}">{{pl.name}}</a>
+          <button
+            ng-show="vm.isAuthenticated"
+            name="edit"
+            id="edit"
+            class="btn btn-primary"
+            ng-click="vm.editProgramingLanguage(pl)"
+          >
+            Edit
+          </button>
+          <button
+            ng-show="vm.isAuthenticated"
+            name="delete"
+            id="delete"
+            class="btn btn-danger"
+            ng-click="vm.deleteProgramingLanguage(pl)"
+          >
+            Delete
+          </button>
+        </li>
+      </ul>
+    </strong>
+    <div ng-show="vm.isAuthenticated">
+      <h1>Add New Programing Language</h1>
+
+      <form novalidate name="vm.programingLanguageForm" ng-submit="vm.addUpdateProgramingLanguage()">
+        <div class="row">
+          <label for="title">Name </label>
+          <input type="text" name="name" ng-model="vm.programingLanguage.name" required class="form-control" />
+          <div
+            class="form-text text-danger"
+            ng-show="vm.programingLanguageForm.name.$invalid && (vm.programingLanguageForm.name.$dirty|| vm.programingLanguageForm.$submitted)"
+          >
+            Please enter the programing language name
+          </div>
+
+          <label for="year">Founder</label>
+          <input type="text" name="founder" ng-model="vm.programingLanguage.founder" class="form-control" />
+          <label for="year">Release Date </label>
+          <input type="date" name="releaseDate" ng-model="vm.programingLanguage.releaseDate" class="form-control" />
+          <div
+            class="form-text text-danger"
+            ng-show="vm.programingLanguageForm.releaseDate.$invalid && (vm.programingLanguageForm.releaseDate.$dirty || vm.programingLanguageForm.$submitted)"
+          >
+            Please enter a valid release date
+          </div>
+          <label for="price">Description</label>
+          <textarea
+            name="description"
+            id="iprice"
+            ng-model="vm.programingLanguage.description"
+            class="form-control"
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

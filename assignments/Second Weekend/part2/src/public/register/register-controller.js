@@ -1,4 +1,4 @@
-angular.module("meanGames").controller("registerController", registerController);
+angular.module("pl").controller("registerController", registerController);
 
 function registerController(usersFactory) {
   const vm = this;

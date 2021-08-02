@@ -1,17 +1,12 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const {
-  meanGamesResponse,
-  completeRequest,
-  serverErrorResponse,
-  unauthorizedResponse,
-} = require("../../helpers/response");
+const { plResponse, completeRequest, serverErrorResponse, unauthorizedResponse } = require("../../helpers/response");
 const { HTTP_STATUS } = require("../../helpers/httpStatus");
 const User = mongoose.model("User");
 
 const register = (req, res) => {
-  let response = meanGamesResponse(HTTP_STATUS.CREATED, null);
+  let response = plResponse(HTTP_STATUS.CREATED, null);
   if (req.body.userName.trim() === "" || req.body.password === "") {
     response.status = HTTP_STATUS.NOT_ACCEPTED;
     response.data = { message: "please provide user name and password" };
@@ -54,7 +49,7 @@ const register = (req, res) => {
   }
 };
 const login = (req, res) => {
-  let response = meanGamesResponse(HTTP_STATUS.OK, null);
+  let response = plResponse(HTTP_STATUS.OK, null);
   if (!req.body.userName || !req.body.password) {
     response.status = HTTP_STATUS.NOT_ACCEPTED;
     response.data = { message: "please provide user name and password" };
@@ -108,7 +103,6 @@ const login = (req, res) => {
     });
   }
 };
-
 const authenticate = function (req, res, next) {
   var headerExists = req.headers.Authorization;
   if (headerExists) {
