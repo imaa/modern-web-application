@@ -13,3 +13,6 @@ app.use(configs.api.prefix, weatherRouter)
 const server = app.listen(process.env.PORT, () => {
     console.log(`Http server is running on http://localhost:${server.address().port}/`)
 })
+
+const a = new Promise();
+a.
