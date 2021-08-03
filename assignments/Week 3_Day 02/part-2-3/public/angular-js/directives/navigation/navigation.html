@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#!/">Mean Games</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#!/">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/games">Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/register" ng-hide="vm.isAuthenticated">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/profile" ng-show="vm.isAuthenticated">Profile</a>
+        </li>
+      </ul>
+      <form class="d-flex" ng-submit="vm.login()" ng-hide="vm.isAuthenticated">
+        <input
+          class="form-control me-sm-2"
+          name="userName"
+          type="text"
+          ng-model="vm.user.userName"
+          placeholder="User Name"
+        />
+        <input
+          class="form-control me-sm-2"
+          name="password"
+          type="password"
+          ng-model="vm.user.password"
+          placeholder="Password"
+        />
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
+      </form>
+      <div class="d-flex" ng-show="vm.isAuthenticated">
+        <p class="form-label"><strong>Hello, </strong> {{vm.loginUser.name}} ....</p>
+        <button class="btn btn-secondary my-2 my-sm-0" type="button" ng-click="vm.logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>

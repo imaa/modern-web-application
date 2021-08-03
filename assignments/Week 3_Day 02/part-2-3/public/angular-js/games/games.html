@@ -1,0 +1,120 @@
+<div class="container">
+  <h1>{{vm.title}}</h1>
+  <ul>
+    <li ng-repeat="game in vm.games">
+      <a href="#!/game/{{game._id}}">{{game.title}}</a>
+      <a
+        name="edit"
+        ng-show="vm.isAuthenticated"
+        id="edit"
+        class="btn btn-primary"
+        ng-click="vm.editGame(game)"
+        role="button"
+        >Edit</a
+      >
+      <a
+        name="edit"
+        ng-show="vm.isAuthenticated"
+        id="edit"
+        class="btn btn-danger"
+        ng-click="vm.deleteGame($event,game)"
+        role="button"
+        >Delete</a
+      >
+    </li>
+  </ul>
+</div>
+<div ng-show="vm.isAuthenticated" class="container">
+  <h2>Add new Game</h2>
+  <form novalidate name="vm.gameForm" ng-submit="vm.addUpdateGame()">
+    <div class="row">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        id="iTitle"
+        ng-model="vm.game.title"
+        required
+        class="form-control"
+        placeholder="Title"
+      />
+      <div
+        class="form-text text-danger"
+        ng-show="vm.gameForm.title.$invalid && (vm.gameForm.title.$dirty|| vm.gameForm.$submitted)"
+      >
+        Please enter the game title
+      </div>
+
+      <label for="year">Year</label>
+      <input
+        type="text"
+        name="year"
+        id="iyear"
+        ng-model="vm.game.year"
+        pattern="[1-2][0-9][0-9][0-9]"
+        class="form-control"
+        placeholder="Year"
+      />
+      <div
+        class="form-text text-danger"
+        ng-show="vm.gameForm.year.$invalid && (vm.gameForm.year.$dirty || vm.gameForm.$submitted)"
+      >
+        Please enter a valid game year >1000
+      </div>
+      <label for="year">Rate</label>
+      <input type="text" name="rate" id="iyear" ng-model="vm.game.rate" class="form-control" placeholder="rate" />
+
+      <label for="price">Price</label>
+      <input type="number" name="rate" id="iprice" ng-model="vm.game.price" class="form-control" placeholder="price" />
+      <label for="year">Minimum Players</label>
+      <input
+        type="text"
+        name="minPlayers"
+        required
+        ng-model="vm.game.minPlayers"
+        class="form-control"
+        placeholder="Minimum Players"
+      />
+      <div
+        class="form-text text-danger"
+        ng-show="vm.gameForm.minPlayers.$invalid && (vm.gameForm.minPlayers.$dirty || vm.gameForm.$submitted)"
+      >
+        Please enter a valid game Minimum Players
+      </div>
+      <label for="year">Maximum Players</label>
+      <input
+        type="text"
+        name="maxPlayers"
+        required
+        ng-model="vm.game.maxPlayers"
+        class="form-control"
+        placeholder="Maximum Players"
+      />
+      <div
+        class="form-text text-danger"
+        ng-show="vm.gameForm.maxPlayers.$invalid && (vm.gameForm.maxPlayers.$dirty || vm.gameForm.$submitted)"
+      >
+        Please enter a valid game Maximum Players
+      </div>
+
+      <label for="year">Minimum Age</label>
+      <input
+        type="text"
+        name="minAge"
+        required
+        ng-model="vm.game.minAge"
+        class="form-control"
+        placeholder="Maximum Players"
+      />
+      <div
+        class="form-text text-danger"
+        ng-show="vm.gameForm.minAge.$invalid && (vm.gameForm.minAge.$dirty || vm.gameForm.$submitted)"
+      >
+        Please enter a valid game minimum age
+      </div>
+      <label for="year">Designer</label>
+      <input type="text" name="designer" ng-model="vm.game.designer" class="form-control" placeholder="designer" />
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
