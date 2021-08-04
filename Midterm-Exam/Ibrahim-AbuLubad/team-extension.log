@@ -136,3 +136,26 @@
 2021-08-04T15:19:17.031Z - debug:  [13136] TFVC errors (via stderr): Unable to determine the source control server.
 
 2021-08-04T15:19:17.031Z - error:  [13136] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
+2021-08-04T16:07:18.655Z - info:   [05540] *** FOLDER: d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad ***
+2021-08-04T16:07:18.656Z - info:   [05540] AzureReposVSCode/1.161.1 (VSCode 1.58.2; Windows_NT 10.0.19043; Node 14.16.0)
+2021-08-04T16:07:18.656Z - debug:  [05540] Looking for an External Context at d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad
+2021-08-04T16:07:18.656Z - debug:  [05540] No External Context at d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad
+2021-08-04T16:07:18.710Z - debug:  [05540] Looking for TFVC repository at d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad
+2021-08-04T16:07:18.710Z - debug:  [05540] TFVC Creating Tfvc object with localPath='undefined'
+2021-08-04T16:07:18.711Z - debug:  [05540] Using TFS proxy: 
+2021-08-04T16:07:18.711Z - debug:  [05540] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2021-08-04T16:07:18.713Z - debug:  [05540] TFVC Repository created with repositoryRootFolder='d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad'
+2021-08-04T16:07:18.713Z - debug:  [05540] TFVC Repository.CheckVersion
+2021-08-04T16:07:18.713Z - debug:  [05540] TFVC: tf add -noprompt -?
+2021-08-04T16:07:18.736Z - debug:  [05540] TFVC: spawned new process (duration: 22ms)
+2021-08-04T16:07:18.747Z - debug:  [05540] TFVC: spawned new process (duration: 10ms)
+2021-08-04T16:07:19.505Z - debug:  [05540] TFVC: add exit code: 0 (duration: 792ms)
+2021-08-04T16:07:19.506Z - debug:  [05540] TFVC Minimum required version: 14.102.0
+2021-08-04T16:07:19.506Z - debug:  [05540] TFVC (TF.exe, TF.cmd) version: 16.170.31227.2
+2021-08-04T16:07:19.506Z - debug:  [05540] TFVC Repository.FindWorkspace with localPath='d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad'
+2021-08-04T16:07:19.506Z - debug:  [05540] TFVC: tf workfold -noprompt d:\MIU\Study\MWA\modern-web-application\Midterm-Exam\Ibrahim-AbuLubad
+2021-08-04T16:07:19.524Z - debug:  [05540] TFVC: spawned new process (duration: 17ms)
+2021-08-04T16:07:19.812Z - debug:  [05540] TFVC: workfold exit code: 100 (duration: 306ms)
+2021-08-04T16:07:19.813Z - debug:  [05540] TFVC errors (via stderr): Unable to determine the source control server.
+
+2021-08-04T16:07:19.813Z - error:  [05540] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
