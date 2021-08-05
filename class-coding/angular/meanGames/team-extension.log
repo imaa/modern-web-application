@@ -1,0 +1,23 @@
+2021-08-04T18:59:37.609Z - info:   [18884] *** FOLDER: d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames ***
+2021-08-04T18:59:37.609Z - info:   [18884] AzureReposVSCode/1.161.1 (VSCode 1.58.2; Windows_NT 10.0.19043; Node 14.16.0)
+2021-08-04T18:59:37.609Z - debug:  [18884] Looking for an External Context at d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames
+2021-08-04T18:59:37.610Z - debug:  [18884] No External Context at d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames
+2021-08-04T18:59:37.616Z - debug:  [18884] Looking for TFVC repository at d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames
+2021-08-04T18:59:37.616Z - debug:  [18884] TFVC Creating Tfvc object with localPath='undefined'
+2021-08-04T18:59:37.616Z - debug:  [18884] Using TFS proxy: 
+2021-08-04T18:59:37.616Z - debug:  [18884] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2021-08-04T18:59:37.617Z - debug:  [18884] TFVC Repository created with repositoryRootFolder='d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames'
+2021-08-04T18:59:37.617Z - debug:  [18884] TFVC Repository.CheckVersion
+2021-08-04T18:59:37.617Z - debug:  [18884] TFVC: tf add -noprompt -?
+2021-08-04T18:59:37.624Z - debug:  [18884] TFVC: spawned new process (duration: 7ms)
+2021-08-04T18:59:37.631Z - debug:  [18884] TFVC: spawned new process (duration: 7ms)
+2021-08-04T18:59:37.963Z - debug:  [18884] TFVC: add exit code: 0 (duration: 346ms)
+2021-08-04T18:59:37.963Z - debug:  [18884] TFVC Minimum required version: 14.102.0
+2021-08-04T18:59:37.963Z - debug:  [18884] TFVC (TF.exe, TF.cmd) version: 16.170.31227.2
+2021-08-04T18:59:37.963Z - debug:  [18884] TFVC Repository.FindWorkspace with localPath='d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames'
+2021-08-04T18:59:37.963Z - debug:  [18884] TFVC: tf workfold -noprompt d:\MIU\Study\MWA\modern-web-application\class-coding\angular\meanGames
+2021-08-04T18:59:37.971Z - debug:  [18884] TFVC: spawned new process (duration: 7ms)
+2021-08-04T18:59:38.203Z - debug:  [18884] TFVC: workfold exit code: 100 (duration: 239ms)
+2021-08-04T18:59:38.203Z - debug:  [18884] TFVC errors (via stderr): Unable to determine the source control server.
+
+2021-08-04T18:59:38.203Z - error:  [18884] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).

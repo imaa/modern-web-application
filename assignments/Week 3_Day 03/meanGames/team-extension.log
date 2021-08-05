@@ -1,0 +1,23 @@
+2021-08-05T14:58:34.478Z - info:   [15604] *** FOLDER: d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames ***
+2021-08-05T14:58:34.479Z - info:   [15604] AzureReposVSCode/1.161.1 (VSCode 1.58.2; Windows_NT 10.0.19043; Node 14.16.0)
+2021-08-05T14:58:34.480Z - debug:  [15604] Looking for an External Context at d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames
+2021-08-05T14:58:34.481Z - debug:  [15604] No External Context at d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames
+2021-08-05T14:58:34.526Z - debug:  [15604] Looking for TFVC repository at d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames
+2021-08-05T14:58:34.527Z - debug:  [15604] TFVC Creating Tfvc object with localPath='undefined'
+2021-08-05T14:58:34.528Z - debug:  [15604] Using TFS proxy: 
+2021-08-05T14:58:34.529Z - debug:  [15604] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2021-08-05T14:58:34.531Z - debug:  [15604] TFVC Repository created with repositoryRootFolder='d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames'
+2021-08-05T14:58:34.533Z - debug:  [15604] TFVC Repository.CheckVersion
+2021-08-05T14:58:34.534Z - debug:  [15604] TFVC: tf add -noprompt -?
+2021-08-05T14:58:34.631Z - debug:  [15604] TFVC: spawned new process (duration: 96ms)
+2021-08-05T14:58:34.710Z - debug:  [15604] TFVC: spawned new process (duration: 77ms)
+2021-08-05T14:58:35.367Z - debug:  [15604] TFVC: add exit code: 0 (duration: 833ms)
+2021-08-05T14:58:35.367Z - debug:  [15604] TFVC Minimum required version: 14.102.0
+2021-08-05T14:58:35.368Z - debug:  [15604] TFVC (TF.exe, TF.cmd) version: 16.170.31227.2
+2021-08-05T14:58:35.368Z - debug:  [15604] TFVC Repository.FindWorkspace with localPath='d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames'
+2021-08-05T14:58:35.368Z - debug:  [15604] TFVC: tf workfold -noprompt d:\MIU\Study\MWA\modern-web-application\assignments\Week 3_Day 03\meanGames
+2021-08-05T14:58:35.374Z - debug:  [15604] TFVC: spawned new process (duration: 6ms)
+2021-08-05T14:58:35.588Z - debug:  [15604] TFVC: workfold exit code: 100 (duration: 220ms)
+2021-08-05T14:58:35.589Z - debug:  [15604] TFVC errors (via stderr): Unable to determine the source control server.
+
+2021-08-05T14:58:35.589Z - error:  [15604] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
