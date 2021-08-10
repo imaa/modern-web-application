@@ -1,0 +1,35 @@
+{
+  "name": "assign-2-3",
+  "version": "1.0.0",
+  "description": "an express application that returns the main page for the MEAN Games application",
+  "main": "index.js",
+  "scripts": {
+    "installAll": "(npm install) & (cd public\\angular && npm install) ",
+    "frontEnd": "cd .\\public\\angular && npm start",
+    "backEnd": "nodemon",
+    "start": "npm-run-all -p  backEnd frontEnd",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "express",
+    "Static"
+  ],
+  "author": "Ibrahim Abulubad",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-jwt": "^0.1.11",
+    "angular-route": "^1.8.2",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.3",
+    "open": "^8.2.1"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
