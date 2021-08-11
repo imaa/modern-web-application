@@ -14,6 +14,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GamesService } from './services/games.service';
+import { GameComponent } from './game/game.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { GamesService } from './services/games.service';
     GameListComponent,
     RegisterComponent,
     ProfileComponent,
+    GameComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,10 @@ import { GamesService } from './services/games.service';
       {
         path: 'games',
         component: GameListComponent,
+      },
+      {
+        path: 'games/:id',
+        component: GameComponent,
       },
       {
         path: 'register',

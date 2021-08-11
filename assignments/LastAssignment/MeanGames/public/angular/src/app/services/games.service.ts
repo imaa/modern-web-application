@@ -8,9 +8,24 @@ import { Game } from '../game-list/Game';
   providedIn: 'root',
 })
 export class GamesService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   public getGames(): Observable<Game[]> {
     return this._http.get<Game[]>(environment.apiBaseUrl + 'games');
+  }
+  public getGame(id: string): Observable<Game> {
+    return this._http.get<Game>(environment.apiBaseUrl + 'games/' + id);
+  }
+  public deleteGame(id: string): Observable<boolean> {
+    return this._http.delete<boolean>(environment.apiBaseUrl + 'games/' + id);
+  }
+  public saveGame(game: Game): Observable<boolean> {
+    return this._http.post<boolean>(environment.apiBaseUrl + 'games', game);
+  }
+  public updateFullGame(id: string, game: Game): Observable<boolean> {
+    return this._http.put<boolean>(environment.apiBaseUrl + 'games/' + id, game);
+  }
+  public updatePartialGame(id: string, game: Game): Observable<boolean> {
+    return this._http.patch<boolean>(environment.apiBaseUrl + 'games/' + id, game);
   }
 }

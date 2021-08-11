@@ -15,14 +15,24 @@ export class GameListComponent implements OnInit {
   private set games(games: Game[]) {
     this._games = games;
   }
-  constructor(private gamesService: GamesService) {}
+
+  private _isAuthenticated: boolean = false;
+  public get isAuthenticated(): boolean {
+    return this._isAuthenticated;
+  }
+  public set isAuthenticated(v: boolean) {
+    this._isAuthenticated = v;
+  }
+
+
+  constructor(private gamesService: GamesService) { }
 
   ngOnInit(): void {
     this.gamesService.getGames().subscribe(
       (games) => {
         this.games = games;
       },
-      (err) => {}
+      (err) => { }
     );
   }
 }
