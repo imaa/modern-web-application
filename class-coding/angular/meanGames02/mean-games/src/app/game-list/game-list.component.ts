@@ -8,10 +8,7 @@ import { GamesService } from '../services/games.service';
 })
 export class GameListComponent implements OnInit {
 
-  private _games: Game[] = [{
-    title: 'Mt. Jack', price: 33.96, year: 2006
-  },
-  { title: 'Mt. Prittter', price: 22.96, year: 1986 }];
+  private _games!: Game[];
   public get games(): Game[] { return this._games }
   private set games(games: Game[]) {
     this._games = games;
@@ -21,6 +18,7 @@ export class GameListComponent implements OnInit {
   ngOnInit(): void {
     this.gamesService.getGames().subscribe((games) => {
       this.games = games;
+
     }, (err) => { })
   }
 
