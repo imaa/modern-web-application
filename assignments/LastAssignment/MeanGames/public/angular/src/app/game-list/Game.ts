@@ -7,6 +7,6 @@ export class Game {
   maxPlayers!: number;
   minPlayers!: number;
   minAge!: number;
-
+  rate!: number;
 
 }

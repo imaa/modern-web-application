@@ -15,6 +15,8 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { GamesService } from './services/games.service';
 import { GameComponent } from './game/game.component';
+import { RatingComponent } from './rating/rating.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,10 +27,12 @@ import { GameComponent } from './game/game.component';
     RegisterComponent,
     ProfileComponent,
     GameComponent,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',

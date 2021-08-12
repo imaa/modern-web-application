@@ -20,18 +20,17 @@ export class GameComponent implements OnInit {
   }
 
 
-  constructor(private gameServive: GamesService, private router: ActivatedRoute) { }
+  constructor(private gameService: GamesService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadGame(this.router.snapshot.params["id"]);
 
   }
   loadGame(id: string) {
-    this.gameServive.getGame(id).subscribe(this.getGameSucess.bind(this), () => { })
+    this.gameService.getGame(id).subscribe(this.getGameSuccess.bind(this), () => { })
   }
-  private getGameSucess(game: Game) {
+  private getGameSuccess(game: Game) {
     console.log(game);
     this.game = game;
   }
-
 }

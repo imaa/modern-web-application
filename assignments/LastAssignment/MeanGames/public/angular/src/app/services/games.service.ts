@@ -10,8 +10,8 @@ import { Game } from '../game-list/Game';
 export class GamesService {
   constructor(private _http: HttpClient) { }
 
-  public getGames(): Observable<Game[]> {
-    return this._http.get<Game[]>(environment.apiBaseUrl + 'games');
+  public getGames(skip:number,limit:number): Observable<Game[]> {
+    return this._http.get<Game[]>(environment.apiBaseUrl + 'games?skip='+skip+'&limit='+limit);
   }
   public getGame(id: string): Observable<Game> {
     return this._http.get<Game>(environment.apiBaseUrl + 'games/' + id);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GamesService } from '../services/games.service';
 import { Game } from './Game';
 
@@ -24,15 +25,44 @@ export class GameListComponent implements OnInit {
     this._isAuthenticated = v;
   }
 
+private _skip : number=0;
+public get skip() : number {
+  return this._skip;
+}
+public set skip(v : number) {
+  this._skip = v;
+}
 
-  constructor(private gamesService: GamesService) { }
+private _limit : number=5;
+public get limit() : number {
+  return this._limit;
+}
+public set limit(v : number) {
+  this._limit = v;
+}
+  constructor(private gamesService: GamesService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.gamesService.getGames().subscribe(
+this.skip =this.route.snapshot.queryParams.skip??0;
+this.limit =this.route.snapshot.queryParams.limit??5;
+this.getGames();
+  }
+  previous(){
+    this.skip -= this.limit;
+    this.getGames();
+  }
+  next(){
+    this.skip += this.limit;
+    this.getGames();
+  }
+  getGames () {
+    this.gamesService.getGames(this.skip,this.limit).subscribe(
       (games) => {
         this.games = games;
+
       },
-      (err) => { }
+      (err) => {
+       }
     );
   }
 }
