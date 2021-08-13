@@ -1,8 +1,8 @@
-angular.module("meanGames").factory("GameDatFactory", GameDataFactory);
+angular.module("meanGames").factory("GameDataFactory", GameDataFactory);
 
 function GameDataFactory($http) {
     return {
-        getAlGames: getAllGames,
+        getAllGames: getAllGames,
         getOneGame: getOneGame,
         postGame: postGame
     };

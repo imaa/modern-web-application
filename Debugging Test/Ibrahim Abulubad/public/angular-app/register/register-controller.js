@@ -3,6 +3,7 @@ angular.module("meanGames").controller("RegisterController", RegisterController)
 function RegisterController($http) {
     var vm = this;
     vm.register = function () {
+        debugger;
         var user = {
             username: vm.username, 
             password: vm.password

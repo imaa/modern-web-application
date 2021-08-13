@@ -10,7 +10,7 @@ module.exports.gameGetAll = function (req, res) {
     if (req.query && req.query.offset) {
         offset = parseInt(req.query.offset, 10);
     }
-    if (req.query && req.query.cont) {
+    if (req.query && req.query.count) {
         count = parseInt(req.query.count, 10);
     }
     if (isNaN(offset) || isNaN(count)) {
@@ -22,7 +22,7 @@ module.exports.gameGetAll = function (req, res) {
         return;
     }
 
-    Game.find().skip(offset).limit(cout).exec(function (err, games) {
+    Game.find().skip(offset).limit(count).exec(function (err, games) {
         if (err) {
             console.log("Error finding games");
             res.status(500).json(err);
@@ -34,8 +34,8 @@ module.exports.gameGetAll = function (req, res) {
 };
 
 module.exports.gameGetOne = function (req, res) {
-    var gameId = req.params.gamesId;
-    Game.findById(gameId).exec(function () {
+    var gameId = req.params.gameId;
+    Game.findById(gameId).exec(function (err,game) {
         var response= {
             status: 200,
             message: game
@@ -68,6 +68,7 @@ module.exports.gameAddOne = function (req, res) {
         name: "empty",
         location: []
     }
+    console.log("POST game ", req.body);
     Game.create({
         title: req.body.title,
         year: parseInt(req.body.year, 10),

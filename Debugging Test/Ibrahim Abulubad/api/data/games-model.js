@@ -48,7 +48,7 @@ var publisherSchema= new mongoose.Schema({
 
 var gameSchema= mongoose.Schema({
     title: {
-        type: Sting,
+        type: String,
         required: true
     },
     year: {
@@ -84,4 +84,4 @@ var gameSchema= mongoose.Schema({
     },
 });
 
-mongoose.model("Game", gamesSchema, "games");
+mongoose.model("Game", gameSchema, "games");

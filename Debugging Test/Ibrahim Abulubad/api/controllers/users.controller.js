@@ -5,6 +5,7 @@ var jwt = require("jsonwebtoken");
 
 module.exports.register = function (req, res) {
     console.log("Registering user");
+    console.log(req.body);
     var username = req.body.username;
     var name = req.body.name || null;
     console.log("req.body ", req.body);
@@ -55,6 +56,7 @@ module.exports.login = function (req, res) {
 
 module.exports.authenticate = function (req, res, next) {
     var headerExists = req.headers.authorization;
+    console.log("headerExists ", headerExists);
     if (headerExists) {
         var token = req.headers.authorization.split(" ")[1];
         jwt.verify(token, "cs572", function (err, decoded) {

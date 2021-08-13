@@ -15,7 +15,7 @@ function config($httpProvider, $routeProvider, $locationProvider) {
     })
     .when("/game/:id", {
       templateUrl: "angular-app/game-display/game.html",
-      controller: "GameControler",
+      controller: "GameController",
       controllerAs: "vm",
       access: { restricted: false }
     })
@@ -23,7 +23,7 @@ function config($httpProvider, $routeProvider, $locationProvider) {
       templateUrl: "angular-app/register/register.html",
       controller: "RegisterController",
       controllerAs: "vm",
-      access: { restricted: fale }
+      access: { restricted: false,restrictedWithLoggedIn: true }
     })
     .when("/profile", {
       templateUrl: "angular-app/profile/profile.html",
@@ -38,6 +38,9 @@ function config($httpProvider, $routeProvider, $locationProvider) {
 function run($rootScope, $location, $window, AuthFactory) {
   $rootScope.$on("$routeChangeStart", function (event, nextRoute, currentRoute) {
     if (nextRoute.access !== undefined && nextRoute.access.restricted && !$window.sessionStorage.token && !AuthFactory.isLoggedIn) {
+      event.preventDefault(); // Do not go to that path
+      $location.path("/");        // Instead go to the root
+    } else if (nextRoute.access !== undefined && nextRoute.access.restrictedWithLoggedIn && $window.sessionStorage.token && AuthFactory.isLoggedIn) {
       event.preventDefault(); // Do not go to that path
       $location.path("/");        // Instead go to the root
     }

@@ -1,7 +1,7 @@
 var mongoose= require("mongoose");
 require("./games-model");
-require("./user-model");
-var dbURL= "mongo://localhost:27017/meanGames";
+require("./users-model");
+var dbURL= "mongodb://localhost:27017/meanGames";
 
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 

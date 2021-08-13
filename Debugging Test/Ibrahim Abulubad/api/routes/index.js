@@ -7,7 +7,7 @@ var controllerUsers= require("../controllers/users.controller.js");
 
 router.route("/games")
       .get(controllerGames.gameGetAll)
-      .post(controllerUsers.authenticate);
+      .post(controllerUsers.authenticate,controllerGames.gameAddOne);
 
 router.route("/games/:gameId")
       .get(controllerGames.gameGetOne)
