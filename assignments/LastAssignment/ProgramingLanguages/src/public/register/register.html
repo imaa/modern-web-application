@@ -1,0 +1,63 @@
+<form novalidate name="vm.registerForm" class="container" ng-submit="vm.register()">
+  <h1>{{vm.title}}</h1>
+  <div ng-if="vm.success" class="alert alert-success" role="alert">
+    <strong>Holy guacamole!</strong> User successfully created, please login.
+  </div>
+  <div ng-if="vm.error" class="alert alert-danger" role="alert"><strong>Oops!</strong>{{vm.error}}</div>
+  <label for="title">Name :</label>
+  <input required class="form-control me-sm-2" name="name" type="text" ng-model="vm.user.name" placeholder="Name" />
+  <div
+    class="form-text text-danger"
+    ng-show="vm.registerForm.name.$invalid && (vm.registerForm.name.$dirty|| vm.registerForm.$submitted)"
+  >
+    Please enter your name
+  </div>
+
+  <label for="title">User Name :</label>
+  <input
+    required
+    class="form-control me-sm-2"
+    name="userName"
+    type="text"
+    ng-model="vm.user.userName"
+    placeholder="User Name"
+  />
+  <div
+    class="form-text text-danger"
+    ng-show="vm.registerForm.userName.$invalid && (vm.registerForm.userName.$dirty|| vm.registerForm.$submitted)"
+  >
+    Please enter your user name
+  </div>
+
+  <label for="title">Password :</label>
+  <input
+    required
+    class="form-control me-sm-2"
+    name="password"
+    type="password"
+    ng-model="vm.user.password"
+    placeholder="Password"
+  />
+  <div
+    class="form-text text-danger"
+    ng-show="vm.registerForm.password.$invalid && (vm.registerForm.password.$dirty|| vm.registerForm.$submitted)"
+  >
+    Please enter your password
+  </div>
+  <label for="title">Confirm Password :</label>
+  <input
+    required
+    class="form-control me-sm-2"
+    name="confirmPassword"
+    type="password"
+    ng-model="vm.user.confirmPassword"
+    placeholder="Confirm Password"
+  />
+  <div
+    class="form-text text-danger"
+    ng-show="vm.registerForm.confirmPassword.$invalid && (vm.registerForm.confirmPassword.$dirty|| vm.registerForm.$submitted)"
+  >
+    Please enter your confirm password
+  </div>
+  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Register</button>
+</form>
