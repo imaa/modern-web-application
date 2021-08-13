@@ -92,3 +92,49 @@
 2021-08-11T18:16:26.181Z - debug:  [11196] TFVC errors (via stderr): Unable to determine the source control server.
 
 2021-08-11T18:16:26.182Z - error:  [11196] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
+2021-08-13T01:29:47.362Z - info:   [13852] *** FOLDER: d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames ***
+2021-08-13T01:29:47.363Z - info:   [13852] AzureReposVSCode/1.161.1 (VSCode 1.59.0; Windows_NT 10.0.19043; Node 14.16.0)
+2021-08-13T01:29:47.364Z - debug:  [13852] Looking for an External Context at d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T01:29:47.364Z - debug:  [13852] No External Context at d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T01:29:47.398Z - debug:  [13852] Looking for TFVC repository at d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T01:29:47.398Z - debug:  [13852] TFVC Creating Tfvc object with localPath='undefined'
+2021-08-13T01:29:47.401Z - debug:  [13852] Using TFS proxy: 
+2021-08-13T01:29:47.402Z - debug:  [13852] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2021-08-13T01:29:47.406Z - debug:  [13852] TFVC Repository created with repositoryRootFolder='d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames'
+2021-08-13T01:29:47.408Z - debug:  [13852] TFVC Repository.CheckVersion
+2021-08-13T01:29:47.409Z - debug:  [13852] TFVC: tf add -noprompt -?
+2021-08-13T01:29:47.462Z - debug:  [13852] TFVC: spawned new process (duration: 52ms)
+2021-08-13T01:29:47.487Z - debug:  [13852] TFVC: spawned new process (duration: 23ms)
+2021-08-13T01:29:50.484Z - debug:  [13852] TFVC: add exit code: 0 (duration: 3075ms)
+2021-08-13T01:29:50.486Z - debug:  [13852] TFVC Minimum required version: 14.102.0
+2021-08-13T01:29:50.486Z - debug:  [13852] TFVC (TF.exe, TF.cmd) version: 16.170.31227.2
+2021-08-13T01:29:50.487Z - debug:  [13852] TFVC Repository.FindWorkspace with localPath='d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames'
+2021-08-13T01:29:50.488Z - debug:  [13852] TFVC: tf workfold -noprompt d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T01:29:50.532Z - debug:  [13852] TFVC: spawned new process (duration: 41ms)
+2021-08-13T01:29:52.309Z - debug:  [13852] TFVC: workfold exit code: 100 (duration: 1821ms)
+2021-08-13T01:29:52.314Z - debug:  [13852] TFVC errors (via stderr): Unable to determine the source control server.
+
+2021-08-13T01:29:52.316Z - error:  [13852] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).
+2021-08-13T04:07:43.845Z - info:   [07640] *** FOLDER: d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames ***
+2021-08-13T04:07:43.845Z - info:   [07640] AzureReposVSCode/1.161.1 (VSCode 1.59.0; Windows_NT 10.0.19043; Node 14.16.0)
+2021-08-13T04:07:43.845Z - debug:  [07640] Looking for an External Context at d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T04:07:43.845Z - debug:  [07640] No External Context at d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T04:07:43.854Z - debug:  [07640] Looking for TFVC repository at d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T04:07:43.854Z - debug:  [07640] TFVC Creating Tfvc object with localPath='undefined'
+2021-08-13T04:07:43.855Z - debug:  [07640] Using TFS proxy: 
+2021-08-13T04:07:43.855Z - debug:  [07640] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe'
+2021-08-13T04:07:43.856Z - debug:  [07640] TFVC Repository created with repositoryRootFolder='d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames'
+2021-08-13T04:07:43.856Z - debug:  [07640] TFVC Repository.CheckVersion
+2021-08-13T04:07:43.857Z - debug:  [07640] TFVC: tf add -noprompt -?
+2021-08-13T04:07:43.863Z - debug:  [07640] TFVC: spawned new process (duration: 6ms)
+2021-08-13T04:07:43.870Z - debug:  [07640] TFVC: spawned new process (duration: 7ms)
+2021-08-13T04:07:44.255Z - debug:  [07640] TFVC: add exit code: 0 (duration: 398ms)
+2021-08-13T04:07:44.255Z - debug:  [07640] TFVC Minimum required version: 14.102.0
+2021-08-13T04:07:44.255Z - debug:  [07640] TFVC (TF.exe, TF.cmd) version: 16.170.31227.2
+2021-08-13T04:07:44.255Z - debug:  [07640] TFVC Repository.FindWorkspace with localPath='d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames'
+2021-08-13T04:07:44.255Z - debug:  [07640] TFVC: tf workfold -noprompt d:\MIU\Study\MWA\modern-web-application\assignments\LastAssignment\MeanGames
+2021-08-13T04:07:44.262Z - debug:  [07640] TFVC: spawned new process (duration: 6ms)
+2021-08-13T04:07:44.557Z - debug:  [07640] TFVC: workfold exit code: 100 (duration: 302ms)
+2021-08-13T04:07:44.558Z - debug:  [07640] TFVC errors (via stderr): Unable to determine the source control server.
+
+2021-08-13T04:07:44.558Z - error:  [07640] Could not find a workspace with mappings (e.g., not a TFVC repository, wrong version of TF is being used).

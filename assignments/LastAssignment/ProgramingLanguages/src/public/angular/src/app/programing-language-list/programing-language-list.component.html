@@ -1,0 +1,109 @@
+<div class="container mt-5 mb-5">
+  <ul>
+    <li *ngFor="let programingLanguage of programingLanguages">
+      {{ programingLanguages.indexOf(programingLanguage) + 1 + skip }}-
+      <a routerLink="/pls/{{ programingLanguage._id }}">{{
+        programingLanguage.name
+      }}</a>
+      <a
+        name=" edit"
+        *ngIf="userService.isAuthenticated()"
+        id="edit"
+        class="btn btn-primary btn-sm"
+        (click)="edit(programingLanguage)"
+        role="button"
+        >Edit</a
+      >
+      <a
+        name="edit"
+        id="edit"
+        class="btn btn-danger btn-sm"
+        *ngIf="userService.isAuthenticated()"
+        role="button"
+        (click)="deleteProgramingLanguage(programingLanguage)"
+        >Delete</a
+      >
+    </li>
+  </ul>
+  <div>
+    <button
+      class="btn btn-secondary"
+      [disabled]="skip == 0"
+      (click)="previous()"
+    >
+      Previous
+    </button>
+    <button
+      class="btn btn-secondary"
+      [disabled]="programingLanguages.length < limit"
+      (click)="next()"
+    >
+      Next
+    </button>
+  </div>
+</div>
+<div *ngIf="userService.isAuthenticated()" class="container">
+  <h2>Add new ProgramingLanguage</h2>
+  <form
+    novalidate
+    #form="ngForm"
+    (ngSubmit)="addUpdateProgramingLanguage(form)"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngIf="success" class="alert alert-success" role="alert">
+          <strong>Holy guacamole!</strong> successfully created or updated
+        </div>
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+          <strong>Oops!</strong>{{ error }}
+        </div>
+      </div>
+      <label for="title">Name </label>
+      <input
+        type="text"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="programingLanguage.name"
+        required
+        class="form-control"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="name.invalid && (name.dirty || form.submitted)"
+      >
+        Please enter the programing language name
+      </div>
+
+      <label for="year">Founder</label>
+      <input
+        type="text"
+        name="founder"
+        [(ngModel)]="programingLanguage.founder"
+        class="form-control"
+      />
+      <label for="year">Release Date </label>
+      <input
+        type="date"
+        name="releaseDate"
+        #releaseDate="ngModel"
+        [(ngModel)]="programingLanguage.releaseDate"
+        class="form-control"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="releaseDate.invalid && (releaseDate.dirty || form.submitted)"
+      >
+        Please enter a valid release date
+      </div>
+      <label for="price">Description</label>
+      <textarea
+        name="description"
+        id="iprice"
+        [(ngModel)]="programingLanguage.description"
+        class="form-control"
+      ></textarea>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>

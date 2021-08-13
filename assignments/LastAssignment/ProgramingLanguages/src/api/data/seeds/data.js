@@ -21,7 +21,7 @@ const seedData = [
   {
     name: "JavaScript",
     description:
-      "JavaScript is the most popular programming language for building interactive websites; “virtually everyone is using it,” Gorton says. When combined with Node.js, programmers can use JavaScript to produce web content on the server before a page is sent to the browser, which can be used to build games and communication applications that run directly in the browser. A wide variety of add-ons extend the functionality of JavaScript as well. ",
+      "JavaScript is the most popular programming language for building interactive websites; “virtually everyone is using it,” Gorton says. When combined with Node.js, programmers can use JavaScript to produce web content on the server before a page is sent to the browser, which can be used to build programingLanguages and communication applications that run directly in the browser. A wide variety of add-ons extend the functionality of JavaScript as well. ",
     releaseDate: "12/04/1995",
     founder: "Brendan Eich",
     ides: [

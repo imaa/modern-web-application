@@ -5,20 +5,20 @@
       <a routerLink="/games/{{ game._id }}">{{ game.title }}</a>
       <a
         name=" edit"
-        *ngIf="isAuthenticated"
+        *ngIf="userService.isAuthenticated()"
         id="edit"
-        class="btn btn-primary"
-        ng-click="vm.editGame(game)"
+        class="btn btn-primary btn-sm"
+        (click)="edit(game)"
         role="button"
         >Edit</a
       >
       <a
         name="edit"
-        *ngIf="isAuthenticated"
         id="edit"
-        class="btn btn-danger"
-        ng-click="vm.deleteGame($event,game)"
+        class="btn btn-danger btn-sm"
+        *ngIf="userService.isAuthenticated()"
         role="button"
+        (click)="deleteGame(game)"
         >Delete</a
       >
     </li>
@@ -40,26 +40,33 @@
     </button>
   </div>
 </div>
-<div *ngIf="isAuthenticated" class="container">
+<div *ngIf="userService.isAuthenticated()" class="container">
   <h2>Add new Game</h2>
-  <form novalidate name="vm.gameForm" ng-submit="vm.addUpdateGame()">
+  <form  novalidate #form="ngForm"   (ngSubmit)="addUpdateGame(form)">
+
     <div class="row">
+      <div class="col-md-6">
+        <div *ngIf="success" class="alert alert-success" role="alert">
+          <strong>Holy guacamole!</strong>  successfully created or updated
+        </div>
+        <div *ngIf="error" class="alert alert-danger" role="alert"><strong>Oops!</strong>{{error}}</div>
+
+        </div>
       <label for="title">Title</label>
       <input
         type="text"
         name="title"
         id="iTitle"
-        ng-model="vm.game.title"
+        [(ngModel)]="game.title"
         required
+        #title="ngModel"
         class="form-control"
         placeholder="Title"
       />
       <div
         class="form-text text-danger"
-        ng-show="
-          vm.gameForm.title.$invalid &&
-          (vm.gameForm.title.$dirty || vm.gameForm.$submitted)
-        "
+        *ngIf="title.invalid &&
+          (title.dirty || form.submitted)"
       >
         Please enter the game title
       </div>
@@ -69,16 +76,17 @@
         type="text"
         name="year"
         id="iyear"
-        ng-model="vm.game.year"
+        [(ngModel)]="game.year"
         pattern="[1-2][0-9][0-9][0-9]"
         class="form-control"
+        #year="ngModel"
         placeholder="Year"
       />
       <div
         class="form-text text-danger"
-        ng-show="
-          vm.gameForm.year.$invalid &&
-          (vm.gameForm.year.$dirty || vm.gameForm.$submitted)
+        *ngIf="
+          year.invalid &&
+          (year.dirty || form.submitted)
         "
       >
         Please enter a valid game year >1000
@@ -88,9 +96,10 @@
         type="text"
         name="rate"
         id="iyear"
-        ng-model="vm.game.rate"
+        [(ngModel)]="game.rate"
         class="form-control"
         placeholder="rate"
+        #rate="ngModel"
       />
 
       <label for="price">Price</label>
@@ -98,24 +107,26 @@
         type="number"
         name="rate"
         id="iprice"
-        ng-model="vm.game.price"
+        [(ngModel)]="game.price"
         class="form-control"
         placeholder="price"
+        #price="ngModel"
       />
       <label for="year">Minimum Players</label>
       <input
         type="text"
         name="minPlayers"
         required
-        ng-model="vm.game.minPlayers"
+        [(ngModel)]="game.minPlayers"
         class="form-control"
         placeholder="Minimum Players"
+        #minPlayers="ngModel"
       />
       <div
         class="form-text text-danger"
-        ng-show="
-          vm.gameForm.minPlayers.$invalid &&
-          (vm.gameForm.minPlayers.$dirty || vm.gameForm.$submitted)
+        *ngIf="
+          minPlayers.invalid &&
+          (minPlayers.dirty || form.submitted)
         "
       >
         Please enter a valid game Minimum Players
@@ -125,15 +136,16 @@
         type="text"
         name="maxPlayers"
         required
-        ng-model="vm.game.maxPlayers"
+        [(ngModel)]="game.maxPlayers"
         class="form-control"
         placeholder="Maximum Players"
+        #maxPlayers="ngModel"
       />
       <div
         class="form-text text-danger"
-        ng-show="
-          vm.gameForm.maxPlayers.$invalid &&
-          (vm.gameForm.maxPlayers.$dirty || vm.gameForm.$submitted)
+        *ngIf="
+          maxPlayers.invalid &&
+          (maxPlayers.dirty || form.submitted)
         "
       >
         Please enter a valid game Maximum Players
@@ -144,15 +156,16 @@
         type="text"
         name="minAge"
         required
-        ng-model="vm.game.minAge"
+        [(ngModel)]="game.minAge"
         class="form-control"
         placeholder="Maximum Players"
+        #minAge="ngModel"
       />
       <div
         class="form-text text-danger"
-        ng-show="
-          vm.gameForm.minAge.$invalid &&
-          (vm.gameForm.minAge.$dirty || vm.gameForm.$submitted)
+        *ngIf="
+          minAge.invalid &&
+          (minAge.dirty || form.submitted)
         "
       >
         Please enter a valid game minimum age
@@ -161,7 +174,7 @@
       <input
         type="text"
         name="designer"
-        ng-model="vm.game.designer"
+        [(ngModel)]="game.designer"
         class="form-control"
         placeholder="designer"
       />

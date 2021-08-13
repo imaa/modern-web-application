@@ -12,11 +12,12 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { registerLocaleData } from '@angular/common';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GamesService } from './services/games.service';
 import { GameComponent } from './game/game.component';
 import { RatingComponent } from './rating/rating.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MeanHttpInterceptorService } from './interceptor/mean-http-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -57,7 +59,7 @@ import { FormsModule } from '@angular/forms';
     ]),
     HttpClientModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: MeanHttpInterceptorService, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

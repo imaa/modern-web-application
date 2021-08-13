@@ -11,6 +11,7 @@ const { HTTP_STATUS } = require("../../helpers/httpStatus");
 const User = mongoose.model("User");
 
 const register = (req, res) => {
+  
   let response = meanGamesResponse(HTTP_STATUS.CREATED, null);
   if (req.body.userName.trim() === "" || req.body.password === "") {
     response.status = HTTP_STATUS.NOT_ACCEPTED;
@@ -20,12 +21,12 @@ const register = (req, res) => {
     response.status = HTTP_STATUS.NOT_ACCEPTED;
     response.data = { message: "password should match the confirm password" };
     completeRequest(res, response);
-  } else {
+  } else { 
+    
     bcrypt.genSalt(10).then(saltGeneratorSuccess.bind(null, res, req)).catch(saltGeneratorFailure.bind(null, res));
   }
 };
-const saltGeneratorFailure = (res, err) => {
-  console.log(err);
+const saltGeneratorFailure = (res, err) => { 
   completeRequest(res, serverErrorResponse());
 };
 const saltGeneratorSuccess = (res, req, salt) => {
@@ -34,7 +35,8 @@ const saltGeneratorSuccess = (res, req, salt) => {
     .then(passwordEncryptionSuccess.bind(null, req, res))
     .catch(passwordEncryptionFailure.bind(null, res));
 };
-const passwordEncryptionSuccess = (req, res, encryptedPassword) => {
+const passwordEncryptionSuccess = (req, res, encryptedPassword) => { 
+  
   const newUser = new User({
     name: req.body.name,
     userName: req.body.userName,
@@ -42,20 +44,21 @@ const passwordEncryptionSuccess = (req, res, encryptedPassword) => {
   });
   User.create(newUser).then(createUserSuccess.bind(null, res)).catch(createUserFailure.bind(null, res));
 };
-createUserFailure = (res, err) => {
-  console.log(err);
+createUserFailure = (res, err) => { 
   completeRequest(res, serverErrorResponse());
 };
-const createUserSuccess = (err, createdUser) => {
+const createUserSuccess = (res, createdUser) => {
+  console.log("res3--------------------------",res.writable); 
   createdUser.password = null;
   completeRequest(res, meanGamesResponse(HTTP_STATUS.CREATED, createdUser));
 };
-passwordEncryptionFailure = (res, err) => {
+passwordEncryptionFailure = ( err,res) => {
   console.log(err);
   completeRequest(res, serverErrorResponse());
 };
 
 const login = (req, res) => {
+  console.log(req.body);
   let response = meanGamesResponse(HTTP_STATUS.OK, null);
   if (!req.body.userName || !req.body.password) {
     response.status = HTTP_STATUS.NOT_ACCEPTED;
@@ -88,8 +91,8 @@ const comparePasswordFailure = (res, err) => {
   console.log(err);
   completeRequest(res, serverErrorResponse());
 };
-const comparePasswordSuccess = (res, user, match) => {
-  if (match) {
+const comparePasswordSuccess = (res, user, match) => { 
+    if (match) {
     jwt.sign(
       {
         id: user._id,
@@ -98,13 +101,15 @@ const comparePasswordSuccess = (res, user, match) => {
       },
       process.env.HASH_PASS,
       {
-        expiresIn: process.env.TOKEN_EXPIRATION,
+        expiresIn: parseInt(process.env.TOKEN_EXPIRATION),
+      
       },
       (err, encodedToken) => {
         if (err) {
           console.log(err);
           completeRequest(res, serverErrorResponse());
         } else {
+          console.log(encodedToken);
           completeRequest(res, meanGamesResponse(HTTP_STATUS.OK, { token: encodedToken }));
         }
       }
@@ -114,10 +119,10 @@ const comparePasswordSuccess = (res, user, match) => {
     completeRequest(res, response);
   }
 };
-const authenticate = function (req, res, next) {
-  var headerExists = req.headers.Authorization;
+const authenticate = function (req, res, next) { 
+  var headerExists = req.headers.authorization;
   if (headerExists) {
-    var token = req.headers.Authorization.split(" ")[1];
+    var token = req.headers.authorization.split(" ")[1];
     jwt.verify(token, process.env.HASH_PASS, (err, decoded) => {
       if (err) {
         console.log(err);

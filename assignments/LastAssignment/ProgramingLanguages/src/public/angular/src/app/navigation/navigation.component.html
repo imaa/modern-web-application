@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="'/'">Programing Languages</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="'/'">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/pls'">Programing Languages</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/register'" *ngIf="!userService.isAuthenticated()"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="userService.isAuthenticated()" [routerLink]="'/profile'">Profile</a>
+        </li>
+      </ul>
+      <form class="d-flex" (ngSubmit)="login()"  *ngIf="!userService.isAuthenticated()">
+        <input
+          class="form-control me-sm-2"
+          name="userName"
+          type="text"
+          [(ngModel)]="user.userName"
+          placeholder="User Name"
+        />
+        <input
+          class="form-control me-sm-2"
+          name="password"
+          type="password"
+          [(ngModel)]="user.password"
+          placeholder="Password"
+        />
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+          Login
+        </button>
+      </form>
+      <div class="d-flex" *ngIf="userService.isAuthenticated()">
+        <p class="form-label"><strong>Hello, </strong> .... {{userService.getUserInfo()?.name}}</p>
+        <button
+          class="btn btn-secondary my-2 my-sm-0"
+          type="button"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

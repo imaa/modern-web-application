@@ -24,40 +24,39 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLink]="'/register'"
-            ng-hide="vm.isAuthenticated"
+            [routerLink]="'/register'" *ngIf="!userService.isAuthenticated()"
             >Register</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/profile'">Profile</a>
+          <a class="nav-link" *ngIf="userService.isAuthenticated()" [routerLink]="'/profile'">Profile</a>
         </li>
       </ul>
-      <form class="d-flex">
+      <form class="d-flex" (ngSubmit)="login()"  *ngIf="!userService.isAuthenticated()">
         <input
           class="form-control me-sm-2"
           name="userName"
           type="text"
-          ng-model="vm.user.userName"
+          [(ngModel)]="user.userName"
           placeholder="User Name"
         />
         <input
           class="form-control me-sm-2"
           name="password"
           type="password"
-          ng-model="vm.user.password"
+          [(ngModel)]="user.password"
           placeholder="Password"
         />
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">
           Login
         </button>
       </form>
-      <div class="d-flex" *ngIf="false">
-        <p class="form-label"><strong>Hello, </strong> ....</p>
+      <div class="d-flex" *ngIf="userService.isAuthenticated()">
+        <p class="form-label"><strong>Hello, </strong> .... {{userService.getUserInfo()?.name}}</p>
         <button
           class="btn btn-secondary my-2 my-sm-0"
           type="button"
-          ng-click="vm.logout()"
+          (click)="logout()"
         >
           Logout
         </button>

@@ -8,5 +8,6 @@ export class Game {
   minPlayers!: number;
   minAge!: number;
   rate!: number;
+  designer!: string;
 
 }

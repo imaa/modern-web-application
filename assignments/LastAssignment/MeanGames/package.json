@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "installAll": "(npm install) & (cd public\\angular && npm install) ",
+    "installAllL": "(npm install) & (cd public/angular && npm install) ",
     "frontEnd": "cd .\\public\\angular && npm start",
     "backEnd": "nodemon",
     "start": "npm-run-all -p  backEnd frontEnd",
